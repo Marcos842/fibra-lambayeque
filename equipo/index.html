@@ -110,8 +110,98 @@
     display:flex;align-items:center;justify-content:center;
     font-size:13px;
   }
-  .sec{display:flex;flex-direction:column;gap:11px}
+  .sec{display:flex;flex-direction:column;gap:11px;scroll-margin-top:66px}
   .sec > p.nota{margin:0;color:var(--ink-soft);font-size:13.5px}
+
+  /* ---------- Indice pegajoso ---------- */
+  .indice{
+    position:sticky;top:0;z-index:20;
+    background:var(--ground);
+    border-bottom:1px solid var(--line);
+    margin-inline:-16px;padding:9px 16px;
+    overflow-x:auto;-webkit-overflow-scrolling:touch;
+  }
+  .indice ul{
+    display:flex;gap:7px;list-style:none;margin:0;padding:0;
+    width:max-content;
+  }
+  .indice a{
+    display:block;white-space:nowrap;text-decoration:none;
+    font-size:13px;font-weight:700;color:var(--ink-soft);
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:999px;padding:7px 13px;
+  }
+  .indice a:hover{color:var(--rojo);border-color:var(--rojo)}
+
+  /* ---------- Calculadora ---------- */
+  .calc{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;box-shadow:var(--shadow);padding:15px;
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .calc-fila{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+  .calc label{display:block;font-size:13px;font-weight:700;margin-bottom:5px}
+  .calc input{
+    width:100%;font:inherit;font-size:16px;color:var(--ink);
+    background:var(--field);border:1.5px solid var(--line-strong);
+    border-radius:9px;padding:10px 12px;min-height:44px;
+    font-variant-numeric:tabular-nums;
+  }
+  .calc input:focus{border-color:var(--rojo);outline:none}
+  .calc button{
+    font-family:var(--display);font-weight:800;font-size:15.5px;
+    color:#fff;background:var(--btn);border:none;border-radius:9px;
+    padding:12px;min-height:46px;cursor:pointer;
+  }
+  .calc button:hover{background:var(--btn-press)}
+  .calc-res{
+    background:var(--field);border:1px solid var(--line);
+    border-radius:10px;padding:13px;font-size:14.5px;line-height:1.5;
+  }
+  .calc-res b{color:var(--ink)}
+  .calc-res .gana{color:var(--ok);font-weight:800}
+  .calc-res .pierde{color:var(--rojo);font-weight:800}
+
+  /* ---------- Checklist ---------- */
+  .check{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;box-shadow:var(--shadow);padding:15px;
+    margin:0;list-style:none;display:flex;flex-direction:column;gap:10px;
+  }
+  .check li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;line-height:1.4}
+  .check li::before{
+    content:"☐";flex:none;color:var(--rojo);font-size:17px;line-height:1.2;
+  }
+
+  /* ---------- Estados ---------- */
+  .estados{
+    margin:0;padding:0;list-style:none;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .estados li{
+    display:flex;gap:11px;align-items:flex-start;
+    background:var(--surface);border:1px solid var(--line);
+    border-left:4px solid var(--line-strong);
+    border-radius:0 11px 11px 0;padding:11px 13px;
+    font-size:14px;line-height:1.4;
+  }
+  .estados li b{display:block;font-family:var(--display);font-size:14.5px}
+  .estados li span{color:var(--ink-soft)}
+  .e1{border-left-color:#E0A520 !important}
+  .e2{border-left-color:#1E9E5A !important}
+  .e3{border-left-color:#C8352B !important}
+  .e4{border-left-color:#2B6FD4 !important}
+  .e5{border-left-color:#6B4FD0 !important}
+
+  .arriba{
+    position:fixed;right:14px;
+    bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+    z-index:30;width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;background:var(--btn);border:none;
+    box-shadow:0 5px 18px rgba(0,0,0,.28);cursor:pointer;
+    font-size:19px;line-height:1;
+  }
 
   /* ---------- Tabla de precios ---------- */
   .tabla-caja{
@@ -234,8 +324,21 @@
     <p class="intro">Precios para orientarte y textos listos para copiar y pegar en WhatsApp. Toca <b>Copiar</b>, pégalo en el chat y cambia lo que está resaltado.</p>
   </header>
 
+  <nav class="indice" aria-label="Secciones">
+    <ul>
+      <li><a href="#precios">S/ Precios</a></li>
+      <li><a href="#calculadora">Calculadora</a></li>
+      <li><a href="#textos">Textos</a></li>
+      <li><a href="#objeciones">Objeciones</a></li>
+      <li><a href="#visita">La visita</a></li>
+      <li><a href="#reglas">Qué decir</a></li>
+      <li><a href="#frases">Frases seguras</a></li>
+      <li><a href="#estados">Estados</a></li>
+    </ul>
+  </nav>
+
   <!-- ============ PRECIOS ============ -->
-  <section class="sec">
+  <section class="sec" id="precios">
     <h2><span>S/</span>Precios</h2>
     <p class="nota">Campañas de setiembre 2026. Si cambian, avisa para actualizar esta página.</p>
 
@@ -273,8 +376,29 @@
     </div>
   </section>
 
+  <!-- ============ CALCULADORA ============ -->
+  <section class="sec" id="calculadora">
+    <h2><span>🧮</span>Calculadora Full Claro</h2>
+    <p class="nota">Pregúntale cuánto paga hoy y hazle el número delante. Es el cierre que más funciona.</p>
+
+    <div class="calc">
+      <div class="calc-fila">
+        <div>
+          <label for="cInt">Internet hoy (S/)</label>
+          <input type="text" id="cInt" inputmode="decimal" placeholder="0">
+        </div>
+        <div>
+          <label for="cCel">Celular hoy (S/)</label>
+          <input type="text" id="cCel" inputmode="decimal" placeholder="0">
+        </div>
+      </div>
+      <button type="button" id="cBtn">Calcular</button>
+      <div class="calc-res" id="cRes">Escribe los dos montos y toca Calcular.</div>
+    </div>
+  </section>
+
   <!-- ============ TEXTOS ============ -->
-  <section class="sec">
+  <section class="sec" id="textos">
     <h2><span>💬</span>Textos para WhatsApp</h2>
     <p class="nota">Cortos a propósito. El mensaje largo no se lee: se saltea o se ignora.</p>
 
@@ -367,7 +491,7 @@ Tienes cobertura confirmada ✅ ¿Lo agendamos esta semana?</pre>
   </section>
 
   <!-- ============ OBJECIONES ============ -->
-  <section class="sec">
+  <section class="sec" id="objeciones">
     <h2><span>!</span>Objeciones</h2>
 
     <div class="obj">
@@ -406,8 +530,24 @@ Tienes cobertura confirmada ✅ ¿Lo agendamos esta semana?</pre>
     </div>
   </section>
 
+  <!-- ============ LA VISITA ============ -->
+  <section class="sec" id="visita">
+    <h2><span>🏠</span>Antes de salir a la visita</h2>
+    <p class="nota">La visita fallida cuesta el pasaje y el turno. Revisa esto antes de moverte.</p>
+
+    <ul class="check">
+      <li><b>Confirma que va a estar el titular.</b> Sin él no se firma nada, y el viaje se pierde.</li>
+      <li><b>Avisa que llevas el contrato, no la instalación.</b> Que no te espere con el técnico.</li>
+      <li><b>Pídele su DNI a la mano</b> y que el nombre coincida con el del formulario.</li>
+      <li><b>Ten el precio final y el precio regular claros</b> antes de tocar la puerta.</li>
+      <li><b>Confirma la referencia por WhatsApp</b> el mismo día. Las direcciones cambian, las bodegas cierran.</li>
+      <li><b>Lleva el link del formulario a la mano</b> por si hay un vecino interesado en la misma cuadra.</li>
+      <li><b>Al terminar, marca el estado en la hoja.</b> Si no lo marcas, el líder no sabe en qué va.</li>
+    </ul>
+  </section>
+
   <!-- ============ REGLAS ============ -->
-  <section class="sec">
+  <section class="sec" id="reglas">
     <h2><span>⚠</span>Lo que siempre debes decir</h2>
     <p class="nota">Si no lo dices y el cliente se entera después, cancela y se te cae la comisión.</p>
 
@@ -425,7 +565,7 @@ Tienes cobertura confirmada ✅ ¿Lo agendamos esta semana?</pre>
   </section>
 
   <!-- ============ FRASES SEGURAS ============ -->
-  <section class="sec">
+  <section class="sec" id="frases">
     <h2><span>✍</span>Cómo decirlo sin riesgo</h2>
     <p class="nota">Vale para banners, posts y mensajes. Lo de la derecha es lo que se publica.</p>
 
@@ -453,8 +593,23 @@ Tienes cobertura confirmada ✅ ¿Lo agendamos esta semana?</pre>
     <p class="nota">Va al pie del banner, en letra chica. No tiene que verse grande: tiene que estar.</p>
   </section>
 
+  <!-- ============ ESTADOS ============ -->
+  <section class="sec" id="estados">
+    <h2><span>📊</span>Estados en la hoja</h2>
+    <p class="nota">Cada lead tiene un estado. Márcalo apenas cambie, no al final del día.</p>
+
+    <ul class="estados">
+      <li class="e1"><span><b>Pendiente</b>Entra solo cuando el cliente llena el formulario. No lo toques tú.</span></li>
+      <li class="e2"><span><b>Con cobertura</b>Ya lo verificaste en el sistema de Claro y sí llega.</span></li>
+      <li class="e3"><span><b>Sin cobertura</b>No llega. Escríbele igual, ofrécele el móvil y pídele un referido.</span></li>
+      <li class="e4"><span><b>Agendado</b>Tienes día y hora de visita confirmados con el titular.</span></li>
+      <li class="e5"><span><b>Instalado</b>El técnico ya instaló. Aquí es donde pides el referido.</span></li>
+      <li><span><b>Descartado</b>No quiso, no califica o no responde tras varios intentos.</span></li>
+    </ul>
+  </section>
+
   <!-- ============ LINK ============ -->
-  <section class="sec">
+  <section class="sec" id="link">
     <h2><span>🔗</span>El link para tus clientes</h2>
     <div class="link-caja">
       <code id="urlForm">https://marcos842.github.io/fibra-lambayeque/</code>
@@ -470,7 +625,52 @@ Tienes cobertura confirmada ✅ ¿Lo agendamos esta semana?</pre>
 
 </div>
 
+<button type="button" class="arriba" id="arriba" aria-label="Volver arriba" hidden>↑</button>
+
 <script>
+(function(){
+  /* ---------- Calculadora Full Claro ---------- */
+  function num(id){
+    var v = parseFloat(String(document.getElementById(id).value).replace(',','.'));
+    return isNaN(v) ? 0 : v;
+  }
+  function sol(n){ return 'S/' + n.toFixed(2).replace(/\.00$/,''); }
+
+  document.getElementById('cBtn').addEventListener('click', function(){
+    var inter = num('cInt'), cel = num('cCel');
+    var caja  = document.getElementById('cRes');
+
+    if(inter <= 0 && cel <= 0){
+      caja.innerHTML = 'Escribe cuánto paga hoy por internet y por su celular.';
+      return;
+    }
+
+    var hoy = inter + cel;
+    var filas = [{ p:79, v:'200 Mbps' }, { p:99, v:'400 Mbps' }].map(function(o){
+      var dif = hoy - o.p;
+      var txt = dif > 0
+        ? '<span class="gana">ahorra ' + sol(dif) + ' al mes</span>'
+        : '<span class="pierde">paga ' + sol(Math.abs(dif)) + ' más</span>';
+      return '<b>Full Claro ' + o.v + ' + móvil ilimitado:</b> ' + sol(o.p) + ' &rarr; ' + txt;
+    }).join('<br>');
+
+    var cierre = (hoy - 79) > 0
+      ? '<br><br>Muéstrale la resta en pantalla. Recuérdale que el precio es <b>por 1 año</b> y que ambos servicios se contratan <b>el mismo día</b>.'
+      : '<br><br><b>Por precio no le conviene.</b> No fuerces el número: véndele por la velocidad, por el recibo único y porque sus Mbps suben de por vida.';
+
+    caja.innerHTML = 'Hoy paga <b>' + sol(hoy) + '</b> al mes entre los dos.<br><br>' + filas + cierre;
+  });
+
+  /* ---------- Volver arriba ---------- */
+  var btnArriba = document.getElementById('arriba');
+  window.addEventListener('scroll', function(){
+    btnArriba.hidden = window.scrollY < 500;
+  }, {passive:true});
+  btnArriba.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+})();
+
 (function(){
   var raiz = document.documentElement;
   try{ if(localStorage.getItem('tema') === 'dark') raiz.setAttribute('data-theme','dark'); }catch(e){}
