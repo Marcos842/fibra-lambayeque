@@ -12,11 +12,15 @@
 <style>
   :root{
     color-scheme: light;
+    --barra:#DA291C;
     --rojo:#DA291C;
-    --rojo-press:#B21F14;
     --rojo-soft:#FDEBE9;
+    --btn:#DA291C;
+    --btn-press:#B21F14;
+    --btn-ink:#FFFFFF;
     --ground:#F2EFEE;
     --surface:#FFFFFF;
+    --field:#FBFAFA;
     --ink:#17120F;
     --ink-soft:#6A5F5C;
     --line:#E3DDDB;
@@ -29,6 +33,28 @@
     --shadow:0 1px 2px rgba(23,18,15,.05), 0 6px 20px rgba(23,18,15,.07);
     --display:'Archivo','Segoe UI',Tahoma,sans-serif;
     --body:'Karla','Segoe UI',Tahoma,sans-serif;
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --barra:#B21F14;
+    --rojo:#FF7A6C;
+    --rojo-soft:#331815;
+    --btn:#E63A2B;
+    --btn-press:#FF5A49;
+    --btn-ink:#FFFFFF;
+    --ground:#15100F;
+    --surface:#1E1817;
+    --field:#191312;
+    --ink:#F4F0EF;
+    --ink-soft:#A99E9B;
+    --line:#332B2A;
+    --line-strong:#4A403E;
+    --note-bg:#251F1E;
+    --note-line:#4A403E;
+    --ok:#5FD494;
+    --ok-soft:#13281E;
+    --danger:#FF9D95;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 6px 20px rgba(0,0,0,.45);
   }
 
   *{box-sizing:border-box}
@@ -45,14 +71,14 @@
   img{max-width:100%}
   [hidden]{display:none !important}
 
-  /* ---------- Barra de marca, de borde a borde ---------- */
+  /* ---------- Barra de marca ---------- */
   .topbar{
-    background:var(--rojo);
-    padding:12px 16px;
-    padding-top:calc(12px + env(safe-area-inset-top, 0px));
+    background:var(--barra);
+    padding:11px 16px;
+    padding-top:calc(11px + env(safe-area-inset-top, 0px));
   }
   .topbar-in{
-    max-width:500px;margin:0 auto;
+    max-width:1020px;margin:0 auto;
     display:flex;align-items:center;gap:13px;
   }
   .topbar img{height:30px;width:auto;flex:none;display:block}
@@ -71,32 +97,75 @@
     letter-spacing:.1em;text-transform:uppercase;color:#fff;
   }
   .mark-txt span{font-size:12px;color:rgba(255,255,255,.9)}
+  .tema{
+    margin-left:auto;flex:none;
+    width:38px;height:38px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.3);
+    cursor:pointer;padding:0;
+  }
+  .tema:hover{background:rgba(255,255,255,.28)}
+  .tema svg{display:block}
+  :root:not([data-theme="dark"]) .i-sol{display:none}
+  :root[data-theme="dark"] .i-luna{display:none}
 
-  /* ---------- Contenido ---------- */
-  .wrap{
-    max-width:500px;margin:0 auto;
+  /* ---------- Rejilla ---------- */
+  .layout{
+    max-width:1020px;margin:0 auto;
     padding-inline:16px;
-    padding-block:18px calc(32px + env(safe-area-inset-bottom, 0px));
-    display:flex;flex-direction:column;gap:13px;
+    padding-block:20px calc(34px + env(safe-area-inset-bottom, 0px));
+    display:grid;grid-template-columns:1fr;gap:14px;
+    align-items:start;
+  }
+  .pitch{display:flex;flex-direction:column;gap:12px}
+  .col-form{display:flex;flex-direction:column;gap:13px}
+
+  @media (min-width:900px){
+    .layout{
+      grid-template-columns:minmax(0,1fr) minmax(0,460px);
+      gap:52px;
+      padding-block:44px 56px;
+    }
+    .pitch{position:sticky;top:32px;gap:18px}
   }
 
   h1{
     font-family:var(--display);font-weight:800;
-    font-size:clamp(25px,7vw,31px);
-    line-height:1.07;letter-spacing:-.022em;
+    font-size:clamp(25px,6.6vw,42px);
+    line-height:1.05;letter-spacing:-.025em;
     text-wrap:balance;margin:0;
   }
   h1 em{font-style:normal;color:var(--rojo)}
-  .lede{margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:38ch}
+  .lede{margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:40ch}
+  @media (min-width:900px){ .lede{font-size:17px;margin-top:14px} }
 
-  .perks{
-    list-style:none;margin:0;padding:0;
-    display:flex;flex-wrap:wrap;gap:6px;
-  }
+  .perks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
   .perks li{
     font-size:12.5px;font-weight:600;
     padding:5px 10px;border-radius:999px;
     background:var(--rojo-soft);color:var(--rojo);
+  }
+  @media (min-width:900px){ .perks li{font-size:14px;padding:7px 13px} }
+
+  .pasos{
+    display:none;margin:0;padding:0;list-style:none;
+    border-top:1px solid var(--line);
+  }
+  @media (min-width:900px){
+    .pasos{display:flex;flex-direction:column}
+    .pasos li{
+      display:flex;gap:13px;align-items:flex-start;
+      padding:15px 0;border-bottom:1px solid var(--line);
+      font-size:15px;color:var(--ink-soft);
+    }
+    .pasos b{
+      flex:none;width:25px;height:25px;border-radius:50%;
+      background:var(--rojo-soft);color:var(--rojo);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--display);font-size:13px;
+    }
+    .pasos strong{color:var(--ink);font-weight:700}
   }
 
   /* ---------- Tarjeta ---------- */
@@ -108,10 +177,15 @@
     box-shadow:var(--shadow);
     display:flex;flex-direction:column;gap:14px;
   }
+  @media (min-width:900px){ .card{padding:24px 22px;gap:16px} }
+
   .field{display:flex;flex-direction:column;gap:5px}
   .field > label,.group-label{font-weight:700;font-size:14px}
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   @media (max-width:349px){.duo{grid-template-columns:1fr}}
+  .duo-lg{display:grid;grid-template-columns:1fr;gap:14px}
+  @media (min-width:900px){.duo-lg{grid-template-columns:1fr 1fr;gap:12px}}
+
   .hint{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.35}
   .hint.alert{
     font-size:14px;font-weight:600;line-height:1.4;
@@ -122,19 +196,19 @@
 
   input[type=text],input[type=tel]{
     width:100%;font:inherit;font-size:16px;
-    color:var(--ink);background:#FBFAFA;
+    color:var(--ink);background:var(--field);
     border:1.5px solid var(--line-strong);
     border-radius:9px;padding:11px 13px;min-height:46px;
   }
   input::placeholder{color:var(--ink-soft);opacity:.65}
-  input:focus{border-color:var(--rojo);background:#fff}
+  input:focus{border-color:var(--rojo);background:var(--surface)}
   input:focus-visible,button:focus-visible,a:focus-visible{
     outline:3px solid var(--rojo);outline-offset:2px;
   }
   .phone-row{display:flex;align-items:stretch}
   .phone-pre{
     display:flex;align-items:center;padding:0 11px;
-    font-weight:700;color:var(--ink-soft);background:#F2EFEE;
+    font-weight:700;color:var(--ink-soft);background:var(--ground);
     border:1.5px solid var(--line-strong);border-right:none;
     border-radius:9px 0 0 9px;font-variant-numeric:tabular-nums;
   }
@@ -155,7 +229,7 @@
     border-style:solid;border-color:var(--ok);
   }
   .geo[data-state="fail"]{
-    color:var(--ink-soft);background:#FBFAFA;border-color:var(--line-strong);
+    color:var(--ink-soft);background:var(--field);border-color:var(--line-strong);
   }
 
   .opts{display:flex;flex-direction:column;gap:6px}
@@ -164,7 +238,7 @@
     display:flex;align-items:center;gap:10px;
     padding:12px 13px;min-height:50px;
     border:1.5px solid var(--line-strong);border-radius:10px;
-    background:#FBFAFA;font-weight:600;font-size:15px;cursor:pointer;
+    background:var(--field);font-weight:600;font-size:15px;cursor:pointer;
   }
   .opt label::before{
     content:"";flex:none;width:19px;height:19px;
@@ -184,16 +258,14 @@
     font-size:12.5px;font-weight:400;color:var(--ink-soft);
     line-height:1.4;cursor:pointer;
   }
-  .consent input{
-    flex:none;width:21px;height:21px;margin:0;accent-color:var(--rojo);
-  }
+  .consent input{flex:none;width:21px;height:21px;margin:0;accent-color:var(--btn)}
 
   .submit{
     width:100%;font-family:var(--display);font-weight:800;font-size:17px;
-    color:#fff;background:var(--rojo);border:none;border-radius:11px;
+    color:var(--btn-ink);background:var(--btn);border:none;border-radius:11px;
     padding:15px;min-height:54px;cursor:pointer;
   }
-  .submit:hover{background:var(--rojo-press)}
+  .submit:hover{background:var(--btn-press)}
   .submit:active{transform:scale(.99)}
   .safe{text-align:center;font-size:12px;color:var(--ink-soft);margin:0;line-height:1.4}
   .err{color:var(--danger);font-size:13px;font-weight:700;margin:0}
@@ -220,10 +292,10 @@
   .wa{
     display:flex;align-items:center;justify-content:center;gap:8px;
     width:100%;font-family:var(--display);font-weight:800;font-size:17px;
-    text-decoration:none;color:#fff;background:var(--rojo);
+    text-decoration:none;color:var(--btn-ink);background:var(--btn);
     border-radius:11px;padding:15px;min-height:54px;
   }
-  .wa:hover{background:var(--rojo-press)}
+  .wa:hover{background:var(--btn-press)}
 
   footer{
     font-size:11.5px;color:var(--ink-soft);line-height:1.5;
@@ -244,112 +316,127 @@
       <b>Promotor autorizado</b>
       <span>Fibra óptica en Lambayeque</span>
     </span>
+    <button type="button" class="tema" id="tema" aria-label="Cambiar entre modo claro y oscuro">
+      <svg class="i-luna" viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M20.7 14.4A8.7 8.7 0 0 1 9.6 3.3a8.7 8.7 0 1 0 11.1 11.1z"/></svg>
+      <svg class="i-sol" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"/></svg>
+    </button>
   </div>
 </div>
 
-<div class="wrap">
+<div class="layout">
 
-  <header>
-    <h1>No llames. No hagas cola.<br><em>Vamos a tu casa.</em></h1>
-    <p class="lede">Déjanos tus datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
-  </header>
+  <div class="pitch">
+    <header>
+      <h1>No llames. No hagas cola.<br><em>Vamos a tu casa.</em></h1>
+      <p class="lede">Déjanos tus datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
+    </header>
 
-  <ul class="perks">
-    <li>Instalación gratis</li>
-    <li>Repetidor Mesh gratis</li>
-    <li>Liga 1 Max incluida</li>
-    <li>105 canales</li>
-  </ul>
+    <ul class="perks">
+      <li>Instalación gratis</li>
+      <li>Repetidor Mesh gratis</li>
+      <li>Liga 1 Max incluida</li>
+      <li>105 canales</li>
+    </ul>
 
-  <form class="card" id="lead" novalidate>
+    <ol class="pasos">
+      <li><b>1</b><span>Llenas el formulario. <strong>Menos de un minuto.</strong></span></li>
+      <li><b>2</b><span>Un promotor de zona <strong>revisa la cobertura</strong> de tu dirección.</span></li>
+      <li><b>3</b><span>Te escribe por WhatsApp y <strong>va a tu casa</strong> a dejar todo listo.</span></li>
+    </ol>
+  </div>
 
-    <div class="duo">
+  <div class="col-form">
+    <form class="card" id="lead" novalidate>
+
+      <div class="duo">
+        <div class="field">
+          <label for="nombres">Nombres</label>
+          <input type="text" id="nombres" autocomplete="given-name" placeholder="Carlos Alberto">
+        </div>
+        <div class="field">
+          <label for="apellidos">Apellidos</label>
+          <input type="text" id="apellidos" autocomplete="family-name" placeholder="Vásquez Díaz">
+        </div>
+      </div>
+
+      <div class="duo-lg">
+        <div class="field">
+          <label for="dni">DNI del titular</label>
+          <input type="text" id="dni" inputmode="numeric" maxlength="8" placeholder="8 dígitos">
+          <p class="hint">Con este se firma el contrato.</p>
+        </div>
+        <div class="field">
+          <label for="celular">Tu WhatsApp</label>
+          <div class="phone-row">
+            <span class="phone-pre">+51</span>
+            <input type="tel" id="celular" inputmode="numeric" maxlength="9" autocomplete="tel" placeholder="9XX XXX XXX">
+          </div>
+        </div>
+      </div>
+
       <div class="field">
-        <label for="nombres">Nombres</label>
-        <input type="text" id="nombres" autocomplete="given-name" placeholder="Carlos Alberto">
+        <span class="group-label">¿Dónde la instalamos?</span>
+        <button type="button" class="geo" id="geo">📍 Compartir mi ubicación</button>
+        <p class="hint" id="geoHint">Así no necesitas saber la manzana ni el número.</p>
       </div>
+
+      <div class="field" id="dirWrap" hidden>
+        <label for="direccion">Tu dirección</label>
+        <input type="text" id="direccion" placeholder="Av. Los Incas 340">
+      </div>
+
       <div class="field">
-        <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" autocomplete="family-name" placeholder="Vásquez Díaz">
+        <label for="referencia">Una referencia de tu casa</label>
+        <input type="text" id="referencia" placeholder="Pomalca, frente a la bodega Rosita">
       </div>
-    </div>
 
-    <div class="field">
-      <label for="dni">DNI del titular</label>
-      <input type="text" id="dni" inputmode="numeric" maxlength="8" placeholder="8 dígitos">
-      <p class="hint">Es el documento con el que se firma el contrato.</p>
-    </div>
-
-    <div class="field">
-      <label for="celular">Tu WhatsApp</label>
-      <div class="phone-row">
-        <span class="phone-pre">+51</span>
-        <input type="tel" id="celular" inputmode="numeric" maxlength="9" autocomplete="tel" placeholder="9XX XXX XXX">
-      </div>
-    </div>
-
-    <div class="field">
-      <span class="group-label">¿Dónde la instalamos?</span>
-      <button type="button" class="geo" id="geo">📍 Compartir mi ubicación</button>
-      <p class="hint" id="geoHint">Así no necesitas saber la manzana ni el número.</p>
-    </div>
-
-    <div class="field" id="dirWrap" hidden>
-      <label for="direccion">Tu dirección</label>
-      <input type="text" id="direccion" placeholder="Av. Los Incas 340">
-    </div>
-
-    <div class="field">
-      <label for="referencia">Una referencia de tu casa</label>
-      <input type="text" id="referencia" placeholder="Pomalca, frente a la bodega Rosita">
-    </div>
-
-    <div class="field">
-      <span class="group-label">¿Qué estás buscando?</span>
-      <p class="hint">Puedes elegir más de uno.</p>
-      <div class="opts">
-        <div class="opt">
-          <input type="checkbox" name="servicio" id="op1" value="Internet">
-          <label for="op1">🛜 Internet</label>
-        </div>
-        <div class="opt">
-          <input type="checkbox" name="servicio" id="op2" value="Internet + TV">
-          <label for="op2">📺 Internet + TV</label>
-        </div>
-        <div class="opt">
-          <input type="checkbox" name="servicio" id="op3" value="Internet + TV + Teléfono fijo">
-          <label for="op3">☎️ Internet + TV + Teléfono fijo</label>
-        </div>
-        <div class="opt">
-          <input type="checkbox" name="servicio" id="op4" value="Portabilidad: pasar mi celular a Claro">
-          <label for="op4">📱 Pasarme a Claro con mi mismo número</label>
+      <div class="field">
+        <span class="group-label">¿Qué estás buscando?</span>
+        <p class="hint">Puedes elegir más de uno.</p>
+        <div class="opts">
+          <div class="opt">
+            <input type="checkbox" name="servicio" id="op1" value="Internet">
+            <label for="op1">🛜 Internet</label>
+          </div>
+          <div class="opt">
+            <input type="checkbox" name="servicio" id="op2" value="Internet + TV">
+            <label for="op2">📺 Internet + TV</label>
+          </div>
+          <div class="opt">
+            <input type="checkbox" name="servicio" id="op3" value="Internet + TV + Teléfono fijo">
+            <label for="op3">☎️ Internet + TV + Teléfono fijo</label>
+          </div>
+          <div class="opt">
+            <input type="checkbox" name="servicio" id="op4" value="Portabilidad: pasar mi celular a Claro">
+            <label for="op4">📱 Pasarme a Claro con mi mismo número</label>
+          </div>
         </div>
       </div>
-    </div>
 
-    <label class="consent" for="acepto">
-      <input type="checkbox" id="acepto">
-      <span>Acepto que mis datos, incluido mi DNI, se usen para evaluar cobertura, gestionar mi contrato y contactarme. Protegidos por la Ley N° 29733. Puedo pedir su eliminación por el mismo WhatsApp.</span>
-    </label>
+      <label class="consent" for="acepto">
+        <input type="checkbox" id="acepto">
+        <span>Acepto que mis datos, incluido mi DNI, se usen para evaluar cobertura, gestionar mi contrato y contactarme. Protegidos por la Ley N° 29733. Puedo pedir su eliminación por el mismo WhatsApp.</span>
+      </label>
 
-    <p class="err" id="error" hidden></p>
+      <p class="err" id="error" hidden></p>
 
-    <button type="submit" class="submit">QUIERO MI FIBRA</button>
-    <p class="safe">🔒 Tu DNI solo se usa para gestionar tu contrato. No lo compartimos con terceros.</p>
-  </form>
+      <button type="submit" class="submit">QUIERO MI FIBRA</button>
+      <p class="safe">🔒 Tu DNI solo se usa para gestionar tu contrato. No lo compartimos con terceros.</p>
+    </form>
 
-  <section class="done" id="done" hidden>
-    <div class="tick">✓</div>
-    <h2 id="doneName">¡Listo!</h2>
-    <p>Toca el botón para enviarnos tus datos. Un promotor de zona revisa la cobertura y te responde hoy mismo.</p>
-    <span class="pending">🟡 Cobertura por revisar</span>
-    <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">💬 Enviar por WhatsApp</a>
-  </section>
+    <section class="done" id="done" hidden>
+      <div class="tick">✓</div>
+      <h2 id="doneName">¡Listo!</h2>
+      <p>Toca el botón para enviarnos tus datos. Un promotor de zona revisa la cobertura y te responde hoy mismo.</p>
+      <span class="pending">🟡 Cobertura por revisar</span>
+      <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">💬 Enviar por WhatsApp</a>
+    </section>
 
-  <footer>
-    Página de un <strong>promotor autorizado</strong> de servicios Claro. No es el sitio oficial de Claro.<br>
-    Cobertura sujeta a evaluación. Precios y campañas según disponibilidad de la zona.
-  </footer>
+    <footer>
+      Página de un <strong>promotor autorizado</strong> de servicios Claro. No es el sitio oficial de Claro.<br>
+      Cobertura sujeta a evaluación. Precios y campañas según disponibilidad de la zona.
+    </footer>
+  </div>
 
 </div>
 
@@ -358,6 +445,22 @@
   var WSP  = '51904874232';
   var HOJA = 'https://script.google.com/macros/s/AKfycbxA_LJXq2K0gohl6gvPe9WR1KkmvyLcwOAHsS4mvsYgeGkjb5iEpLkHoWu71im_B4-z/exec';
 
+  /* ---------- Tema claro / oscuro ---------- */
+  var raiz = document.documentElement;
+  var guardado = null;
+  try{ guardado = localStorage.getItem('tema'); }catch(e){}
+  if(guardado === 'dark'){ raiz.setAttribute('data-theme','dark'); }
+
+  document.getElementById('tema').addEventListener('click', function(){
+    var oscuro = raiz.getAttribute('data-theme') === 'dark';
+    if(oscuro){ raiz.removeAttribute('data-theme'); }
+    else      { raiz.setAttribute('data-theme','dark'); }
+    try{ localStorage.setItem('tema', oscuro ? 'light' : 'dark'); }catch(e){}
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if(meta){ meta.setAttribute('content', oscuro ? '#DA291C' : '#B21F14'); }
+  });
+
+  /* ---------- Logo oficial, si existe ---------- */
   var logo = document.getElementById('logo');
   logo.addEventListener('load', function(){
     logo.hidden = false;
