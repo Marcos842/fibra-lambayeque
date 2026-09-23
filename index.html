@@ -1,367 +1,256 @@
-<title>Fibra Lambayeque</title>
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#DA291C">
+<title>Fibra Claro Lambayeque | Promotor autorizado</title>
+<meta name="description" content="Internet fibra óptica en Chiclayo, Pomalca, Túman, JLO y La Victoria. Instalación gratis. Un promotor de zona va a tu casa.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Karla:wght@400;500;700&display=swap">
 <style>
   :root{
-    --ground:#F5F3F2;
+    color-scheme: light;
+    --rojo:#DA291C;
+    --rojo-press:#B21F14;
+    --rojo-soft:#FDEBE9;
+    --ground:#F2EFEE;
     --surface:#FFFFFF;
-    --ink:#1A1514;
-    --ink-soft:#6B605E;
-    --line:#E4DEDD;
-    --line-strong:#C9C0BE;
-    --primary:#DA291C;
-    --primary-press:#B21F14;
-    --primary-ink:#FFFFFF;
-    --primary-soft:#FDECEA;
-    --note-bg:#EFEBEA;
-    --note-line:#B8ADAB;
-    --ok:#1B7F4B;
-    --ok-soft:#E4F3EA;
+    --ink:#17120F;
+    --ink-soft:#6A5F5C;
+    --line:#E3DDDB;
+    --line-strong:#C7BEBB;
+    --note-bg:#F0ECEB;
+    --note-line:#B5AAA7;
+    --ok:#157C46;
+    --ok-soft:#E3F2E9;
     --danger:#B3261E;
-    --shadow:0 1px 2px rgba(26,21,20,.06), 0 8px 24px rgba(26,21,20,.08);
-    --display:'Archivo', 'Segoe UI', Tahoma, sans-serif;
-    --body:'Karla', 'Segoe UI', Tahoma, sans-serif;
-  }
-  @media (prefers-color-scheme: dark){
-    :root:not([data-theme="light"]){
-      --ground:#141110;
-      --surface:#1E1A19;
-      --ink:#F3EFEE;
-      --ink-soft:#A79C9A;
-      --line:#332D2C;
-      --line-strong:#4C4341;
-      --primary:#FF5A49;
-      --primary-press:#FF7C6E;
-      --primary-ink:#2B0904;
-      --primary-soft:#2F1714;
-      --note-bg:#251F1E;
-      --note-line:#4C4341;
-      --ok:#5FD494;
-      --ok-soft:#14291F;
-      --danger:#FF9D95;
-      --shadow:0 1px 2px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.4);
-    }
-  }
-  :root[data-theme="dark"]{
-    --ground:#141110;
-    --surface:#1E1A19;
-    --ink:#F3EFEE;
-    --ink-soft:#A79C9A;
-    --line:#332D2C;
-    --line-strong:#4C4341;
-    --primary:#FF5A49;
-    --primary-press:#FF7C6E;
-    --primary-ink:#2B0904;
-    --primary-soft:#2F1714;
-    --note-bg:#251F1E;
-    --note-line:#4C4341;
-    --ok:#5FD494;
-    --ok-soft:#14291F;
-    --danger:#FF9D95;
-    --shadow:0 1px 2px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.4);
+    --shadow:0 1px 2px rgba(23,18,15,.05), 0 6px 20px rgba(23,18,15,.07);
+    --display:'Archivo','Segoe UI',Tahoma,sans-serif;
+    --body:'Karla','Segoe UI',Tahoma,sans-serif;
   }
 
   *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
   body{
     background:var(--ground);
     color:var(--ink);
     font-family:var(--body);
     font-size:16px;
-    line-height:1.5;
+    line-height:1.45;
     -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
   }
+  img{max-width:100%}
+  [hidden]{display:none !important}
+
+  /* ---------- Barra de marca, de borde a borde ---------- */
+  .topbar{
+    background:var(--rojo);
+    padding:12px 16px;
+    padding-top:calc(12px + env(safe-area-inset-top, 0px));
+  }
+  .topbar-in{
+    max-width:500px;margin:0 auto;
+    display:flex;align-items:center;gap:13px;
+  }
+  .topbar img{height:30px;width:auto;flex:none;display:block}
+  .mark{
+    font-family:var(--display);font-weight:800;
+    font-size:25px;letter-spacing:-.025em;
+    color:#fff;line-height:1;flex:none;
+  }
+  .mark-txt{
+    display:flex;flex-direction:column;gap:1px;
+    border-left:1px solid rgba(255,255,255,.4);
+    padding-left:13px;min-width:0;
+  }
+  .mark-txt b{
+    font-family:var(--display);font-size:12px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:#fff;
+  }
+  .mark-txt span{font-size:12px;color:rgba(255,255,255,.9)}
+
+  /* ---------- Contenido ---------- */
   .wrap{
-    width:100%;
-    max-width:470px;
-    margin:0 auto;
-    padding-inline:18px;
-    padding-block:22px 40px;
-    display:flex;
-    flex-direction:column;
-    gap:18px;
+    max-width:500px;margin:0 auto;
+    padding-inline:16px;
+    padding-block:18px calc(32px + env(safe-area-inset-bottom, 0px));
+    display:flex;flex-direction:column;gap:13px;
   }
 
-  /* ---------- Banda de marca ---------- */
-  .brand{
-    background:#DA291C;
-    border-radius:16px;
-    padding:18px 20px;
-    display:flex;
-    align-items:center;
-    gap:14px;
-  }
-  .brand img{
-    height:34px;width:auto;flex:none;
-    display:block;
-  }
-  .brand-mark{
-    font-family:var(--display);
-    font-weight:800;
-    font-size:26px;
-    letter-spacing:-.02em;
-    color:#FFFFFF;
-    line-height:1;
-  }
-  .brand-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
-  .brand-txt b{
-    font-family:var(--display);
-    font-size:13px;
-    font-weight:700;
-    letter-spacing:.09em;
-    text-transform:uppercase;
-    color:#FFFFFF;
-  }
-  .brand-txt span{
-    font-size:12.5px;
-    color:rgba(255,255,255,.88);
-    line-height:1.35;
-  }
-
-  /* ---------- Encabezado ---------- */
   h1{
-    font-family:var(--display);
-    font-weight:800;
-    font-size:clamp(27px,7.8vw,34px);
-    line-height:1.08;
-    letter-spacing:-.02em;
-    text-wrap:balance;
-    margin:0;
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(25px,7vw,31px);
+    line-height:1.07;letter-spacing:-.022em;
+    text-wrap:balance;margin:0;
   }
-  h1 em{font-style:normal;color:var(--primary)}
-  .lede{
-    margin:10px 0 0;
-    color:var(--ink-soft);
-    max-width:36ch;
-  }
+  h1 em{font-style:normal;color:var(--rojo)}
+  .lede{margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:38ch}
 
-  /* ---------- Beneficios ---------- */
   .perks{
-    list-style:none;
-    margin:0;padding:0;
-    display:flex;flex-wrap:wrap;gap:7px;
+    list-style:none;margin:0;padding:0;
+    display:flex;flex-wrap:wrap;gap:6px;
   }
   .perks li{
-    font-size:13px;
-    font-weight:600;
-    padding:6px 11px;
-    border-radius:999px;
-    background:var(--primary-soft);
-    color:var(--primary);
+    font-size:12.5px;font-weight:600;
+    padding:5px 10px;border-radius:999px;
+    background:var(--rojo-soft);color:var(--rojo);
   }
 
   /* ---------- Tarjeta ---------- */
   .card{
     background:var(--surface);
     border:1px solid var(--line);
-    border-radius:18px;
-    padding:22px 18px;
+    border-radius:14px;
+    padding:17px 15px;
     box-shadow:var(--shadow);
-    display:flex;flex-direction:column;gap:18px;
+    display:flex;flex-direction:column;gap:14px;
   }
-  .field{display:flex;flex-direction:column;gap:7px}
-  .field > label, .group-label{font-weight:700;font-size:14.5px}
-  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  @media (max-width:359px){.duo{grid-template-columns:1fr}}
-  .hint{font-size:13px;color:var(--ink-soft);margin:0}
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field > label,.group-label{font-weight:700;font-size:14px}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media (max-width:349px){.duo{grid-template-columns:1fr}}
+  .hint{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.35}
   .hint.alert{
-    font-size:14.5px;
-    font-weight:600;
-    line-height:1.45;
-    color:var(--ink);
-    background:var(--note-bg);
+    font-size:14px;font-weight:600;line-height:1.4;
+    color:var(--ink);background:var(--note-bg);
     border-left:4px solid var(--note-line);
-    border-radius:0 10px 10px 0;
-    padding:12px 14px;
+    border-radius:0 9px 9px 0;padding:11px 13px;
   }
+
   input[type=text],input[type=tel]{
-    width:100%;
-    font:inherit;
-    color:var(--ink);
-    background:var(--ground);
+    width:100%;font:inherit;font-size:16px;
+    color:var(--ink);background:#FBFAFA;
     border:1.5px solid var(--line-strong);
-    border-radius:11px;
-    padding:13px 14px;
-    min-height:50px;
+    border-radius:9px;padding:11px 13px;min-height:46px;
   }
-  input::placeholder{color:var(--ink-soft);opacity:.72}
+  input::placeholder{color:var(--ink-soft);opacity:.65}
+  input:focus{border-color:var(--rojo);background:#fff}
   input:focus-visible,button:focus-visible,a:focus-visible{
-    outline:3px solid var(--primary);
-    outline-offset:2px;
+    outline:3px solid var(--rojo);outline-offset:2px;
   }
   .phone-row{display:flex;align-items:stretch}
   .phone-pre{
-    display:flex;align-items:center;
-    padding:0 12px;
-    font-weight:700;
-    color:var(--ink-soft);
-    background:var(--ground);
-    border:1.5px solid var(--line-strong);
-    border-right:none;
-    border-radius:11px 0 0 11px;
-    font-variant-numeric:tabular-nums;
+    display:flex;align-items:center;padding:0 11px;
+    font-weight:700;color:var(--ink-soft);background:#F2EFEE;
+    border:1.5px solid var(--line-strong);border-right:none;
+    border-radius:9px 0 0 9px;font-variant-numeric:tabular-nums;
   }
   .phone-row input{
-    border-radius:0 11px 11px 0;
-    font-variant-numeric:tabular-nums;
-    letter-spacing:.04em;
+    border-radius:0 9px 9px 0;
+    font-variant-numeric:tabular-nums;letter-spacing:.03em;
   }
 
-  /* ---------- Ubicación ---------- */
   .geo{
-    width:100%;
-    font:inherit;font-weight:700;
-    color:var(--primary);
-    background:var(--primary-soft);
-    border:1.5px dashed var(--primary);
-    border-radius:13px;
-    padding:15px 14px;
-    min-height:58px;
-    cursor:pointer;
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    transition:transform .12s ease;
+    width:100%;font:inherit;font-weight:700;font-size:15.5px;
+    color:var(--rojo);background:var(--rojo-soft);
+    border:1.5px dashed var(--rojo);border-radius:11px;
+    padding:13px;min-height:52px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
   }
-  .geo:active{transform:scale(.985)}
   .geo[data-state="ok"]{
-    color:var(--ok);
-    background:var(--ok-soft);
-    border-style:solid;
-    border-color:var(--ok);
+    color:var(--ok);background:var(--ok-soft);
+    border-style:solid;border-color:var(--ok);
   }
   .geo[data-state="fail"]{
-    color:var(--ink-soft);
-    background:var(--ground);
-    border-color:var(--line-strong);
+    color:var(--ink-soft);background:#FBFAFA;border-color:var(--line-strong);
   }
 
-  /* ---------- Servicio ---------- */
-  .opts{display:flex;flex-direction:column;gap:8px}
+  .opts{display:flex;flex-direction:column;gap:6px}
   .opt input{position:absolute;opacity:0;width:0;height:0}
   .opt label{
-    display:flex;align-items:center;gap:11px;
-    padding:14px;min-height:56px;
-    border:1.5px solid var(--line-strong);
-    border-radius:12px;
-    background:var(--ground);
-    font-weight:600;
-    cursor:pointer;
+    display:flex;align-items:center;gap:10px;
+    padding:12px 13px;min-height:50px;
+    border:1.5px solid var(--line-strong);border-radius:10px;
+    background:#FBFAFA;font-weight:600;font-size:15px;cursor:pointer;
   }
   .opt label::before{
-    content:"";flex:none;
-    width:20px;height:20px;
-    border-radius:6px;
-    border:2px solid var(--line-strong);
+    content:"";flex:none;width:19px;height:19px;
+    border-radius:5px;border:2px solid var(--line-strong);
   }
   .opt input:checked + label{
-    border-color:var(--primary);
-    background:var(--primary-soft);
-    color:var(--primary);
+    border-color:var(--rojo);background:var(--rojo-soft);color:var(--rojo);
   }
   .opt input:checked + label::before{
-    border-color:var(--primary);
-    background:var(--primary);
-    box-shadow:inset 0 0 0 3.5px var(--primary-soft);
+    border-color:var(--rojo);background:var(--rojo);
+    box-shadow:inset 0 0 0 3.5px var(--rojo-soft);
   }
-  .opt input:focus-visible + label{outline:3px solid var(--primary);outline-offset:2px}
+  .opt input:focus-visible + label{outline:3px solid var(--rojo);outline-offset:2px}
 
-  /* ---------- Consentimiento ---------- */
   .consent{
-    display:flex;gap:11px;align-items:flex-start;
-    font-size:13.5px;font-weight:400;
-    color:var(--ink-soft);line-height:1.45;
-    cursor:pointer;
+    display:flex;gap:10px;align-items:flex-start;
+    font-size:12.5px;font-weight:400;color:var(--ink-soft);
+    line-height:1.4;cursor:pointer;
   }
   .consent input{
-    flex:none;width:22px;height:22px;
-    margin:1px 0 0;accent-color:var(--primary);
+    flex:none;width:21px;height:21px;margin:0;accent-color:var(--rojo);
   }
 
-  /* ---------- Enviar ---------- */
   .submit{
-    width:100%;
-    font-family:var(--display);font-weight:800;font-size:17px;
-    color:var(--primary-ink);
-    background:var(--primary);
-    border:none;border-radius:13px;
-    padding:17px;min-height:58px;cursor:pointer;
-    transition:transform .12s ease, background .12s ease;
+    width:100%;font-family:var(--display);font-weight:800;font-size:17px;
+    color:#fff;background:var(--rojo);border:none;border-radius:11px;
+    padding:15px;min-height:54px;cursor:pointer;
   }
-  .submit:hover{background:var(--primary-press)}
+  .submit:hover{background:var(--rojo-press)}
   .submit:active{transform:scale(.99)}
-  .safe{
-    text-align:center;font-size:13px;
-    color:var(--ink-soft);margin:0;
-  }
-  .err{
-    color:var(--danger);font-size:13.5px;
-    font-weight:600;margin:0;
-  }
+  .safe{text-align:center;font-size:12px;color:var(--ink-soft);margin:0;line-height:1.4}
+  .err{color:var(--danger);font-size:13px;font-weight:700;margin:0}
 
-  /* ---------- Pantalla final ---------- */
+  /* ---------- Final ---------- */
   .done{
-    background:var(--surface);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:30px 20px;
-    box-shadow:var(--shadow);
-    text-align:center;
-    display:flex;flex-direction:column;gap:14px;align-items:center;
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:26px 18px;box-shadow:var(--shadow);
+    text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;
   }
   .tick{
-    width:56px;height:56px;border-radius:50%;
+    width:50px;height:50px;border-radius:50%;
     background:var(--ok-soft);color:var(--ok);
     display:flex;align-items:center;justify-content:center;
-    font-size:28px;font-weight:700;
+    font-size:25px;font-weight:700;
   }
-  .done h2{
-    font-family:var(--display);font-weight:800;font-size:24px;
-    margin:0;letter-spacing:-.015em;
-  }
-  .done p{margin:0;color:var(--ink-soft);max-width:32ch}
+  .done h2{font-family:var(--display);font-weight:800;font-size:23px;margin:0;letter-spacing:-.015em}
+  .done p{margin:0;color:var(--ink-soft);font-size:15px;max-width:32ch}
   .pending{
-    display:inline-flex;align-items:center;gap:8px;
-    font-size:13px;font-weight:700;
-    padding:7px 13px;border-radius:999px;
-    background:var(--note-bg);color:var(--ink);
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:12.5px;font-weight:700;padding:6px 12px;
+    border-radius:999px;background:var(--note-bg);color:var(--ink);
   }
   .wa{
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    width:100%;
-    font-family:var(--display);font-weight:800;font-size:17px;
-    text-decoration:none;
-    color:var(--primary-ink);background:var(--primary);
-    border-radius:13px;padding:17px;min-height:58px;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;font-family:var(--display);font-weight:800;font-size:17px;
+    text-decoration:none;color:#fff;background:var(--rojo);
+    border-radius:11px;padding:15px;min-height:54px;
   }
-  .wa:hover{background:var(--primary-press)}
+  .wa:hover{background:var(--rojo-press)}
 
-  /* ---------- Pie ---------- */
   footer{
-    font-size:12.5px;color:var(--ink-soft);
-    line-height:1.55;text-align:center;
-    border-top:1px solid var(--line);
-    padding-top:16px;
+    font-size:11.5px;color:var(--ink-soft);line-height:1.5;
+    text-align:center;border-top:1px solid var(--line);padding-top:13px;
   }
   footer strong{color:var(--ink);font-weight:700}
 
-  [hidden]{display:none !important}
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important;animation:none !important}
-  }
+  @media (prefers-reduced-motion: reduce){*{transition:none !important;animation:none !important}}
 </style>
+</head>
+<body>
 
-<div class="wrap">
-
-  <div class="brand">
+<div class="topbar">
+  <div class="topbar-in">
     <img id="logo" src="logo.png" alt="Claro" hidden>
-    <span class="brand-mark" id="marca">Claro</span>
-    <span class="brand-txt">
+    <span class="mark" id="marca">Claro</span>
+    <span class="mark-txt">
       <b>Promotor autorizado</b>
       <span>Fibra óptica en Lambayeque</span>
     </span>
   </div>
+</div>
+
+<div class="wrap">
 
   <header>
-    <h1>No llames.<br>No hagas cola.<br><em>Vamos a tu casa.</em></h1>
+    <h1>No llames. No hagas cola.<br><em>Vamos a tu casa.</em></h1>
     <p class="lede">Déjanos tus datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
   </header>
 
@@ -377,17 +266,17 @@
     <div class="duo">
       <div class="field">
         <label for="nombres">Nombres</label>
-        <input type="text" id="nombres" name="nombres" autocomplete="given-name" placeholder="Carlos Alberto">
+        <input type="text" id="nombres" autocomplete="given-name" placeholder="Carlos Alberto">
       </div>
       <div class="field">
         <label for="apellidos">Apellidos</label>
-        <input type="text" id="apellidos" name="apellidos" autocomplete="family-name" placeholder="Vásquez Díaz">
+        <input type="text" id="apellidos" autocomplete="family-name" placeholder="Vásquez Díaz">
       </div>
     </div>
 
     <div class="field">
       <label for="dni">DNI del titular</label>
-      <input type="text" id="dni" name="dni" inputmode="numeric" maxlength="8" placeholder="8 dígitos">
+      <input type="text" id="dni" inputmode="numeric" maxlength="8" placeholder="8 dígitos">
       <p class="hint">Es el documento con el que se firma el contrato.</p>
     </div>
 
@@ -395,7 +284,7 @@
       <label for="celular">Tu WhatsApp</label>
       <div class="phone-row">
         <span class="phone-pre">+51</span>
-        <input type="tel" id="celular" name="celular" inputmode="numeric" maxlength="9" autocomplete="tel" placeholder="9XX XXX XXX">
+        <input type="tel" id="celular" inputmode="numeric" maxlength="9" autocomplete="tel" placeholder="9XX XXX XXX">
       </div>
     </div>
 
@@ -407,12 +296,12 @@
 
     <div class="field" id="dirWrap" hidden>
       <label for="direccion">Tu dirección</label>
-      <input type="text" id="direccion" name="direccion" placeholder="Av. Los Incas 340">
+      <input type="text" id="direccion" placeholder="Av. Los Incas 340">
     </div>
 
     <div class="field">
       <label for="referencia">Una referencia de tu casa</label>
-      <input type="text" id="referencia" name="referencia" placeholder="Pomalca, frente a la bodega Rosita">
+      <input type="text" id="referencia" placeholder="Pomalca, frente a la bodega Rosita">
     </div>
 
     <div class="field">
@@ -439,7 +328,7 @@
     </div>
 
     <label class="consent" for="acepto">
-      <input type="checkbox" id="acepto" name="acepto">
+      <input type="checkbox" id="acepto">
       <span>Acepto que mis datos, incluido mi DNI, se usen para evaluar cobertura, gestionar mi contrato y contactarme. Protegidos por la Ley N° 29733. Puedo pedir su eliminación por el mismo WhatsApp.</span>
     </label>
 
@@ -466,12 +355,9 @@
 
 <script>
 (function(){
-  var WSP = '51904874232';
-
-  // Apps Script que escribe en la hoja "BASE DE DATOS-CLARO"
+  var WSP  = '51904874232';
   var HOJA = 'https://script.google.com/macros/s/AKfycbxA_LJXq2K0gohl6gvPe9WR1KkmvyLcwOAHsS4mvsYgeGkjb5iEpLkHoWu71im_B4-z/exec';
 
-  // Si existe logo.png junto a la página, reemplaza la marca escrita
   var logo = document.getElementById('logo');
   logo.addEventListener('load', function(){
     logo.hidden = false;
@@ -481,11 +367,11 @@
   function guardarEnHoja(datos){
     try{
       fetch(HOJA, {
-        method: 'POST',
-        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        method:'POST',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
         body: JSON.stringify(datos)
-      }).catch(function(){ /* el WhatsApp queda como respaldo */ });
-    }catch(err){ /* idem */ }
+      }).catch(function(){});
+    }catch(err){}
   }
 
   var form    = document.getElementById('lead');
@@ -498,7 +384,7 @@
 
   function onlyDigits(id, max){
     document.getElementById(id).addEventListener('input', function(e){
-      e.target.value = e.target.value.replace(/\D/g, '').slice(0, max);
+      e.target.value = e.target.value.replace(/\D/g,'').slice(0,max);
     });
   }
   onlyDigits('celular', 9);
@@ -553,34 +439,27 @@
       function(c){ return c.value; }
     );
 
-    if(nombres.length < 3)         return fail('Escribe tus nombres para saber cómo llamarte.', 'nombres');
-    if(apellidos.length < 3)       return fail('Escribe tus apellidos, van en el contrato.', 'apellidos');
-    if(!/^\d{8}$/.test(dni))       return fail('El DNI debe tener 8 dígitos.', 'dni');
-    if(!/^9\d{8}$/.test(cel))      return fail('Tu WhatsApp debe tener 9 dígitos y empezar con 9.', 'celular');
-    if(!coords && dir.length < 5)  return fail('Comparte tu ubicación o escribe tu dirección.', 'direccion');
-    if(ref.length < 5)             return fail('Agrega una referencia, así el promotor llega sin perderse.', 'referencia');
-    if(!serv.length)               return fail('Marca al menos una opción de lo que estás buscando.');
-    if(!ok)                        return fail('Marca la casilla para que podamos contactarte.', 'acepto');
+    if(nombres.length < 3)        return fail('Escribe tus nombres para saber cómo llamarte.','nombres');
+    if(apellidos.length < 3)      return fail('Escribe tus apellidos, van en el contrato.','apellidos');
+    if(!/^\d{8}$/.test(dni))      return fail('El DNI debe tener 8 dígitos.','dni');
+    if(!/^9\d{8}$/.test(cel))     return fail('Tu WhatsApp debe tener 9 dígitos y empezar con 9.','celular');
+    if(!coords && dir.length < 5) return fail('Comparte tu ubicación o escribe tu dirección.','direccion');
+    if(ref.length < 5)            return fail('Agrega una referencia, así el promotor llega sin perderse.','referencia');
+    if(!serv.length)              return fail('Marca al menos una opción de lo que estás buscando.');
+    if(!ok)                       return fail('Marca la casilla para que podamos contactarte.','acepto');
 
     guardarEnHoja({
-      nombres:    nombres,
-      apellidos:  apellidos,
-      dni:        dni,
-      whatsapp:   cel,
-      ubicacion:  coords ? 'https://www.google.com/maps?q=' + coords : '',
-      direccion:  dir,
-      referencia: ref,
-      busca:      serv.join(' / ')
+      nombres:nombres, apellidos:apellidos, dni:dni, whatsapp:cel,
+      ubicacion: coords ? 'https://www.google.com/maps?q=' + coords : '',
+      direccion:dir, referencia:ref, busca:serv.join(' / ')
     });
 
     var lines = [
-      'Hola, quiero contratar 👋',
-      '',
+      'Hola, quiero contratar 👋','',
       'Nombres: ' + nombres,
       'Apellidos: ' + apellidos,
       'DNI: ' + dni,
-      'WhatsApp: ' + cel,
-      '',
+      'WhatsApp: ' + cel,'',
       'Busco: ' + serv.join(' / '),
       'Referencia: ' + ref
     ];
@@ -589,12 +468,13 @@
 
     document.getElementById('waLink').href =
       'https://wa.me/' + WSP + '?text=' + encodeURIComponent(lines.join('\n'));
-    document.getElementById('doneName').textContent =
-      '¡Listo, ' + nombres.split(' ')[0] + '!';
+    document.getElementById('doneName').textContent = '¡Listo, ' + nombres.split(' ')[0] + '!';
 
     form.hidden = true;
     done.hidden = false;
-    done.scrollIntoView({behavior:'smooth', block:'center'});
+    window.scrollTo({top:0, behavior:'smooth'});
   });
 })();
 </script>
+</body>
+</html>
