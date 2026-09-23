@@ -98,12 +98,8 @@
     max-width:1020px;margin:0 auto;
     display:flex;align-items:center;gap:13px;
   }
-  .topbar img{height:30px;width:auto;flex:none;display:block}
-  .mark{
-    font-family:var(--display);font-weight:800;
-    font-size:25px;letter-spacing:-.025em;
-    color:#fff;line-height:1;flex:none;
-  }
+  .topbar .logo{height:31px;width:auto;flex:none;display:block}
+  @media (min-width:900px){ .topbar .logo{height:37px} }
   .mark-txt{
     display:flex;flex-direction:column;gap:1px;
     border-left:1px solid rgba(255,255,255,.4);
@@ -354,8 +350,7 @@
 <div class="head">
   <div class="topbar">
     <div class="topbar-in">
-      <img id="logo" src="imagen/logo.png" alt="Claro" hidden>
-      <span class="mark" id="marca">Claro</span>
+      <img class="logo" src="imagen/logo-blanco.svg" alt="Claro" width="86" height="31">
       <span class="mark-txt">
         <b>Promotor autorizado</b>
         <span>Fibra óptica en Lambayeque</span>
@@ -517,13 +512,6 @@
     try{ localStorage.setItem('tema', oscuro ? 'light' : 'dark'); }catch(e){}
     var meta = document.querySelector('meta[name="theme-color"]');
     if(meta){ meta.setAttribute('content', oscuro ? '#DA291C' : '#B21F14'); }
-  });
-
-  /* ---------- Logo oficial, si existe ---------- */
-  var logo = document.getElementById('logo');
-  logo.addEventListener('load', function(){
-    logo.hidden = false;
-    document.getElementById('marca').hidden = true;
   });
 
   function guardarEnHoja(datos){
