@@ -518,6 +518,15 @@
     }catch(err){}
   }
 
+  /* ---------- Cuenta una visita, una sola vez por sesión ---------- */
+  (function(){
+    var yaVino = false;
+    try{ yaVino = sessionStorage.getItem('visitado') === '1'; }catch(e){}
+    if(yaVino) return;
+    try{ sessionStorage.setItem('visitado','1'); }catch(e){}
+    guardarEnHoja({ tipo: 'visita' });
+  })();
+
   var form    = document.getElementById('lead');
   var done    = document.getElementById('done');
   var errBox  = document.getElementById('error');
