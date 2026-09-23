@@ -1,0 +1,574 @@
+<title>Fibra Lambayeque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Karla:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --ground:#F6F9F9;
+    --surface:#FFFFFF;
+    --ink:#0F2E2D;
+    --ink-soft:#54706E;
+    --line:#DBE6E5;
+    --line-strong:#BFD2D0;
+    --primary:#0E7C7B;
+    --primary-press:#0A605F;
+    --primary-ink:#FFFFFF;
+    --primary-soft:#E3F1F0;
+    --gold:#9C6B0B;
+    --gold-soft:#FBF1D9;
+    --danger:#B3261E;
+    --shadow:0 1px 2px rgba(15,46,45,.06), 0 8px 24px rgba(15,46,45,.07);
+    --display:'Archivo', 'Segoe UI', Tahoma, sans-serif;
+    --body:'Karla', 'Segoe UI', Tahoma, sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0A1918;
+      --surface:#122524;
+      --ink:#E9F3F2;
+      --ink-soft:#9AB4B2;
+      --line:#21403E;
+      --line-strong:#2E5553;
+      --primary:#2FAEAB;
+      --primary-press:#54C4C1;
+      --primary-ink:#04201F;
+      --primary-soft:#153230;
+      --gold:#E3AE45;
+      --gold-soft:#2A2314;
+      --danger:#F2B8B5;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0A1918;
+    --surface:#122524;
+    --ink:#E9F3F2;
+    --ink-soft:#9AB4B2;
+    --line:#21403E;
+    --line-strong:#2E5553;
+    --primary:#2FAEAB;
+    --primary-press:#54C4C1;
+    --primary-ink:#04201F;
+    --primary-soft:#153230;
+    --gold:#E3AE45;
+    --gold-soft:#2A2314;
+    --danger:#F2B8B5;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--ground);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    width:100%;
+    max-width:470px;
+    margin:0 auto;
+    padding-inline:18px;
+    padding-block:28px 40px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  /* ---------- Encabezado ---------- */
+  .eyebrow{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.11em;
+    text-transform:uppercase;
+    color:var(--primary);
+    margin:0;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(28px,8.2vw,36px);
+    line-height:1.08;
+    letter-spacing:-.02em;
+    text-wrap:balance;
+    margin:8px 0 0;
+  }
+  h1 em{font-style:normal;color:var(--primary)}
+  .lede{
+    margin:11px 0 0;
+    color:var(--ink-soft);
+    max-width:36ch;
+  }
+
+  /* ---------- Beneficios ---------- */
+  .perks{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  .perks li{
+    font-size:13px;
+    font-weight:600;
+    padding:6px 11px;
+    border-radius:999px;
+    background:var(--primary-soft);
+    color:var(--primary);
+  }
+  .perks li.gold{background:var(--gold-soft);color:var(--gold)}
+
+  /* ---------- Tarjeta ---------- */
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px 18px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .field{display:flex;flex-direction:column;gap:7px}
+  .field > label, .group-label{font-weight:700;font-size:14.5px}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media (max-width:359px){.duo{grid-template-columns:1fr}}
+  .hint{font-size:13px;color:var(--ink-soft);margin:0}
+  .hint.alert{
+    font-size:14.5px;
+    font-weight:600;
+    line-height:1.45;
+    color:var(--primary);
+    background:var(--primary-soft);
+    border-left:4px solid var(--primary);
+    border-radius:0 10px 10px 0;
+    padding:12px 14px;
+  }
+  input[type=text],input[type=tel]{
+    width:100%;
+    font:inherit;
+    color:var(--ink);
+    background:var(--ground);
+    border:1.5px solid var(--line-strong);
+    border-radius:11px;
+    padding:13px 14px;
+    min-height:50px;
+  }
+  input::placeholder{color:var(--ink-soft);opacity:.75}
+  input:focus-visible,button:focus-visible,a:focus-visible{
+    outline:3px solid var(--primary);
+    outline-offset:2px;
+  }
+  .phone-row{display:flex;align-items:stretch}
+  .phone-pre{
+    display:flex;align-items:center;
+    padding:0 12px;
+    font-weight:700;
+    color:var(--ink-soft);
+    background:var(--ground);
+    border:1.5px solid var(--line-strong);
+    border-right:none;
+    border-radius:11px 0 0 11px;
+    font-variant-numeric:tabular-nums;
+  }
+  .phone-row input{
+    border-radius:0 11px 11px 0;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:.04em;
+  }
+
+  /* ---------- Botón de ubicación ---------- */
+  .geo{
+    width:100%;
+    font:inherit;
+    font-weight:700;
+    color:var(--gold);
+    background:var(--gold-soft);
+    border:1.5px dashed var(--gold);
+    border-radius:13px;
+    padding:15px 14px;
+    min-height:58px;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    transition:transform .12s ease;
+  }
+  .geo:active{transform:scale(.985)}
+  .geo[data-state="ok"]{
+    color:var(--primary);
+    background:var(--primary-soft);
+    border-style:solid;
+    border-color:var(--primary);
+  }
+  .geo[data-state="fail"]{
+    color:var(--ink-soft);
+    background:var(--ground);
+    border-color:var(--line-strong);
+  }
+
+  /* ---------- Servicio ---------- */
+  .opts{display:flex;flex-direction:column;gap:8px}
+  .opt input{position:absolute;opacity:0;width:0;height:0}
+  .opt label{
+    display:flex;align-items:center;gap:11px;
+    padding:14px;
+    min-height:56px;
+    border:1.5px solid var(--line-strong);
+    border-radius:12px;
+    background:var(--ground);
+    font-weight:600;
+    cursor:pointer;
+  }
+  .opt label::before{
+    content:"";
+    flex:none;
+    width:20px;height:20px;
+    border-radius:6px;
+    border:2px solid var(--line-strong);
+  }
+  .opt input:checked + label{
+    border-color:var(--primary);
+    background:var(--primary-soft);
+    color:var(--primary);
+  }
+  .opt input:checked + label::before{
+    border-color:var(--primary);
+    background:var(--primary);
+    box-shadow:inset 0 0 0 3.5px var(--primary-soft);
+  }
+  .opt input:focus-visible + label{outline:3px solid var(--primary);outline-offset:2px}
+
+  /* ---------- Consentimiento ---------- */
+  .consent{
+    display:flex;gap:11px;align-items:flex-start;
+    font-size:13.5px;
+    font-weight:400;
+    color:var(--ink-soft);
+    line-height:1.45;
+    cursor:pointer;
+  }
+  .consent input{
+    flex:none;
+    width:22px;height:22px;
+    margin:1px 0 0;
+    accent-color:var(--primary);
+  }
+
+  /* ---------- Enviar ---------- */
+  .submit{
+    width:100%;
+    font-family:var(--display);
+    font-weight:800;
+    font-size:17px;
+    color:var(--primary-ink);
+    background:var(--primary);
+    border:none;
+    border-radius:13px;
+    padding:17px;
+    min-height:58px;
+    cursor:pointer;
+    transition:transform .12s ease, background .12s ease;
+  }
+  .submit:hover{background:var(--primary-press)}
+  .submit:active{transform:scale(.99)}
+  .no-dni{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0;
+  }
+  .err{
+    color:var(--danger);
+    font-size:13.5px;
+    font-weight:600;
+    margin:0;
+  }
+
+  /* ---------- Pantalla final ---------- */
+  .done{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:30px 20px;
+    box-shadow:var(--shadow);
+    text-align:center;
+    display:flex;flex-direction:column;gap:14px;align-items:center;
+  }
+  .tick{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--primary-soft);color:var(--primary);
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;font-weight:700;
+  }
+  .done h2{
+    font-family:var(--display);font-weight:800;font-size:24px;
+    margin:0;letter-spacing:-.015em;
+  }
+  .done p{margin:0;color:var(--ink-soft);max-width:32ch}
+  .pending{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;
+    padding:7px 13px;border-radius:999px;
+    background:var(--gold-soft);color:var(--gold);
+  }
+  .wa{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    width:100%;
+    font-family:var(--display);font-weight:800;font-size:17px;
+    text-decoration:none;
+    color:var(--primary-ink);background:var(--primary);
+    border-radius:13px;padding:17px;min-height:58px;
+  }
+  .wa:hover{background:var(--primary-press)}
+
+  /* ---------- Pie ---------- */
+  footer{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    line-height:1.55;
+    text-align:center;
+    border-top:1px solid var(--line);
+    padding-top:16px;
+  }
+  footer strong{color:var(--ink);font-weight:700}
+
+  [hidden]{display:none !important}
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Promotor de zona &middot; Lambayeque</p>
+    <h1>No llames.<br>No hagas cola.<br><em>Vamos a tu casa.</em></h1>
+    <p class="lede">Déjanos 4 datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
+  </header>
+
+  <ul class="perks">
+    <li>Instalación gratis</li>
+    <li>Repetidor Mesh gratis</li>
+    <li class="gold">Liga 1 Max incluida</li>
+  </ul>
+
+  <form class="card" id="lead" novalidate>
+
+    <div class="duo">
+      <div class="field">
+        <label for="nombres">Nombres</label>
+        <input type="text" id="nombres" name="nombres" autocomplete="given-name" placeholder="Carlos Alberto">
+      </div>
+      <div class="field">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" name="apellidos" autocomplete="family-name" placeholder="Vásquez Díaz">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="dni">DNI del titular</label>
+      <input type="text" id="dni" name="dni" inputmode="numeric" maxlength="8" placeholder="8 dígitos">
+      <p class="hint">Es el documento con el que se firma el contrato.</p>
+    </div>
+
+    <div class="field">
+      <label for="celular">Tu WhatsApp</label>
+      <div class="phone-row">
+        <span class="phone-pre">+51</span>
+        <input type="tel" id="celular" name="celular" inputmode="numeric" maxlength="9" autocomplete="tel" placeholder="9XX XXX XXX">
+      </div>
+    </div>
+
+    <div class="field">
+      <span class="group-label">¿Dónde la instalamos?</span>
+      <button type="button" class="geo" id="geo">📍 Compartir mi ubicación</button>
+      <p class="hint" id="geoHint">Así no necesitas saber la manzana ni el número.</p>
+    </div>
+
+    <div class="field" id="dirWrap" hidden>
+      <label for="direccion">Tu dirección</label>
+      <input type="text" id="direccion" name="direccion" placeholder="Av. Los Incas 340">
+    </div>
+
+    <div class="field">
+      <label for="referencia">Una referencia de tu casa</label>
+      <input type="text" id="referencia" name="referencia" placeholder="Pomalca, frente a la bodega Rosita">
+    </div>
+
+    <div class="field">
+      <span class="group-label">¿Qué estás buscando?</span>
+      <p class="hint">Puedes elegir más de uno.</p>
+      <div class="opts">
+        <div class="opt">
+          <input type="checkbox" name="servicio" id="op1" value="Internet">
+          <label for="op1">🛜 Internet</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" name="servicio" id="op2" value="Internet + TV">
+          <label for="op2">📺 Internet + TV</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" name="servicio" id="op3" value="Internet + TV + Teléfono fijo">
+          <label for="op3">☎️ Internet + TV + Teléfono fijo</label>
+        </div>
+        <div class="opt">
+          <input type="checkbox" name="servicio" id="op4" value="Portabilidad: pasar mi celular a Claro">
+          <label for="op4">📱 Pasarme a Claro con mi mismo número</label>
+        </div>
+      </div>
+    </div>
+
+    <label class="consent" for="acepto">
+      <input type="checkbox" id="acepto" name="acepto">
+      <span>Acepto que mis datos, incluido mi DNI, se usen para evaluar cobertura, gestionar mi contrato y contactarme. Protegidos por la Ley N° 29733. Puedo pedir su eliminación por el mismo WhatsApp.</span>
+    </label>
+
+    <p class="err" id="error" hidden></p>
+
+    <button type="submit" class="submit">QUIERO MI FIBRA</button>
+    <p class="no-dni">🔒 Tu DNI solo se usa para gestionar tu contrato. No lo compartimos con terceros.</p>
+  </form>
+
+  <section class="done" id="done" hidden>
+    <div class="tick">✓</div>
+    <h2 id="doneName">¡Listo!</h2>
+    <p>Toca el botón para enviarnos tus datos. Un promotor de zona revisa la cobertura y te responde hoy mismo.</p>
+    <span class="pending">🟡 Cobertura por revisar</span>
+    <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">💬 Enviar por WhatsApp</a>
+  </section>
+
+  <footer>
+    Página de un <strong>promotor autorizado</strong> de servicios Claro. No es el sitio oficial de Claro.<br>
+    Cobertura sujeta a evaluación. Precios y campañas según disponibilidad de la zona.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var WSP = '51904874232';
+
+  // Apps Script que escribe en la hoja "BASE DE DATOS-CLARO"
+  var HOJA = 'https://script.google.com/macros/s/AKfycbxA_LJXq2K0gohl6gvPe9WR1KkmvyLcwOAHsS4mvsYgeGkjb5iEpLkHoWu71im_B4-z/exec';
+
+  function guardarEnHoja(datos){
+    try{
+      fetch(HOJA, {
+        method: 'POST',
+        headers: {'Content-Type': 'text/plain;charset=utf-8'},
+        body: JSON.stringify(datos)
+      }).catch(function(){ /* el WhatsApp queda como respaldo */ });
+    }catch(err){ /* idem */ }
+  }
+
+  var form    = document.getElementById('lead');
+  var done    = document.getElementById('done');
+  var errBox  = document.getElementById('error');
+  var geoBtn  = document.getElementById('geo');
+  var geoHint = document.getElementById('geoHint');
+  var dirWrap = document.getElementById('dirWrap');
+  var coords  = null;
+
+  function onlyDigits(id, max){
+    document.getElementById(id).addEventListener('input', function(e){
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, max);
+    });
+  }
+  onlyDigits('celular', 9);
+  onlyDigits('dni', 8);
+
+  geoBtn.addEventListener('click', function(){
+    if(!navigator.geolocation){ geoFail(); return; }
+    geoBtn.textContent = 'Obteniendo ubicación…';
+    geoBtn.disabled = true;
+    navigator.geolocation.getCurrentPosition(function(pos){
+      coords = pos.coords.latitude.toFixed(6) + ',' + pos.coords.longitude.toFixed(6);
+      geoBtn.disabled = false;
+      geoBtn.dataset.state = 'ok';
+      geoBtn.textContent = '✅ Ubicación recibida';
+      geoHint.className = 'hint';
+      geoHint.textContent = 'Perfecto, con esto ubicamos tu casa.';
+      dirWrap.hidden = true;
+    }, geoFail, {enableHighAccuracy:true, timeout:12000, maximumAge:0});
+  });
+
+  function geoFail(){
+    coords = null;
+    geoBtn.disabled = false;
+    geoBtn.dataset.state = 'fail';
+    geoBtn.textContent = '📍 Reintentar ubicación';
+    geoHint.className = 'hint alert';
+    geoHint.textContent = '👍 Tranquilo, lo resolvemos igual. Escribe tu dirección aquí abajo y tu promotor de zona llega sin problema.';
+    dirWrap.hidden = false;
+  }
+
+  function fail(msg, id){
+    errBox.textContent = msg;
+    errBox.hidden = false;
+    var el = id && document.getElementById(id);
+    if(el){ el.focus(); }
+    return false;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    errBox.hidden = true;
+
+    var nombres   = document.getElementById('nombres').value.trim();
+    var apellidos = document.getElementById('apellidos').value.trim();
+    var dni       = document.getElementById('dni').value.trim();
+    var cel       = document.getElementById('celular').value.trim();
+    var dir       = document.getElementById('direccion').value.trim();
+    var ref       = document.getElementById('referencia').value.trim();
+    var ok        = document.getElementById('acepto').checked;
+    var serv      = Array.prototype.map.call(
+      form.querySelectorAll('input[name="servicio"]:checked'),
+      function(c){ return c.value; }
+    );
+
+    if(nombres.length < 3)         return fail('Escribe tus nombres para saber cómo llamarte.', 'nombres');
+    if(apellidos.length < 3)       return fail('Escribe tus apellidos, van en el contrato.', 'apellidos');
+    if(!/^\d{8}$/.test(dni))       return fail('El DNI debe tener 8 dígitos.', 'dni');
+    if(!/^9\d{8}$/.test(cel))      return fail('Tu WhatsApp debe tener 9 dígitos y empezar con 9.', 'celular');
+    if(!coords && dir.length < 5)  return fail('Comparte tu ubicación o escribe tu dirección.', 'direccion');
+    if(ref.length < 5)             return fail('Agrega una referencia, así el promotor llega sin perderse.', 'referencia');
+    if(!serv.length)               return fail('Marca al menos una opción de lo que estás buscando.');
+    if(!ok)                        return fail('Marca la casilla para que podamos contactarte.', 'acepto');
+
+    guardarEnHoja({
+      nombres:    nombres,
+      apellidos:  apellidos,
+      dni:        dni,
+      whatsapp:   cel,
+      ubicacion:  coords ? 'https://www.google.com/maps?q=' + coords : '',
+      direccion:  dir,
+      referencia: ref,
+      busca:      serv.join(' / ')
+    });
+
+    var lines = [
+      'Hola, quiero contratar 👋',
+      '',
+      'Nombres: ' + nombres,
+      'Apellidos: ' + apellidos,
+      'DNI: ' + dni,
+      'WhatsApp: ' + cel,
+      '',
+      'Busco: ' + serv.join(' / '),
+      'Referencia: ' + ref
+    ];
+    if(dir)    lines.push('Dirección: ' + dir);
+    if(coords) lines.push('Ubicación: https://www.google.com/maps?q=' + coords);
+
+    document.getElementById('waLink').href =
+      'https://wa.me/' + WSP + '?text=' + encodeURIComponent(lines.join('\n'));
+    document.getElementById('doneName').textContent =
+      '¡Listo, ' + nombres.split(' ')[0] + '!';
+
+    form.hidden = true;
+    done.hidden = false;
+    done.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+})();
+</script>
