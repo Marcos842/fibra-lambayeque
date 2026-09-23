@@ -4,56 +4,62 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Karla:wght@400;500;700&display=swap">
 <style>
   :root{
-    --ground:#F6F9F9;
+    --ground:#F5F3F2;
     --surface:#FFFFFF;
-    --ink:#0F2E2D;
-    --ink-soft:#54706E;
-    --line:#DBE6E5;
-    --line-strong:#BFD2D0;
-    --primary:#0E7C7B;
-    --primary-press:#0A605F;
+    --ink:#1A1514;
+    --ink-soft:#6B605E;
+    --line:#E4DEDD;
+    --line-strong:#C9C0BE;
+    --primary:#DA291C;
+    --primary-press:#B21F14;
     --primary-ink:#FFFFFF;
-    --primary-soft:#E3F1F0;
-    --gold:#9C6B0B;
-    --gold-soft:#FBF1D9;
+    --primary-soft:#FDECEA;
+    --note-bg:#EFEBEA;
+    --note-line:#B8ADAB;
+    --ok:#1B7F4B;
+    --ok-soft:#E4F3EA;
     --danger:#B3261E;
-    --shadow:0 1px 2px rgba(15,46,45,.06), 0 8px 24px rgba(15,46,45,.07);
+    --shadow:0 1px 2px rgba(26,21,20,.06), 0 8px 24px rgba(26,21,20,.08);
     --display:'Archivo', 'Segoe UI', Tahoma, sans-serif;
     --body:'Karla', 'Segoe UI', Tahoma, sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --ground:#0A1918;
-      --surface:#122524;
-      --ink:#E9F3F2;
-      --ink-soft:#9AB4B2;
-      --line:#21403E;
-      --line-strong:#2E5553;
-      --primary:#2FAEAB;
-      --primary-press:#54C4C1;
-      --primary-ink:#04201F;
-      --primary-soft:#153230;
-      --gold:#E3AE45;
-      --gold-soft:#2A2314;
-      --danger:#F2B8B5;
-      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+      --ground:#141110;
+      --surface:#1E1A19;
+      --ink:#F3EFEE;
+      --ink-soft:#A79C9A;
+      --line:#332D2C;
+      --line-strong:#4C4341;
+      --primary:#FF5A49;
+      --primary-press:#FF7C6E;
+      --primary-ink:#2B0904;
+      --primary-soft:#2F1714;
+      --note-bg:#251F1E;
+      --note-line:#4C4341;
+      --ok:#5FD494;
+      --ok-soft:#14291F;
+      --danger:#FF9D95;
+      --shadow:0 1px 2px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.4);
     }
   }
   :root[data-theme="dark"]{
-    --ground:#0A1918;
-    --surface:#122524;
-    --ink:#E9F3F2;
-    --ink-soft:#9AB4B2;
-    --line:#21403E;
-    --line-strong:#2E5553;
-    --primary:#2FAEAB;
-    --primary-press:#54C4C1;
-    --primary-ink:#04201F;
-    --primary-soft:#153230;
-    --gold:#E3AE45;
-    --gold-soft:#2A2314;
-    --danger:#F2B8B5;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+    --ground:#141110;
+    --surface:#1E1A19;
+    --ink:#F3EFEE;
+    --ink-soft:#A79C9A;
+    --line:#332D2C;
+    --line-strong:#4C4341;
+    --primary:#FF5A49;
+    --primary-press:#FF7C6E;
+    --primary-ink:#2B0904;
+    --primary-soft:#2F1714;
+    --note-bg:#251F1E;
+    --note-line:#4C4341;
+    --ok:#5FD494;
+    --ok-soft:#14291F;
+    --danger:#FF9D95;
+    --shadow:0 1px 2px rgba(0,0,0,.45), 0 8px 24px rgba(0,0,0,.4);
   }
 
   *{box-sizing:border-box}
@@ -70,33 +76,61 @@
     max-width:470px;
     margin:0 auto;
     padding-inline:18px;
-    padding-block:28px 40px;
+    padding-block:22px 40px;
     display:flex;
     flex-direction:column;
-    gap:20px;
+    gap:18px;
+  }
+
+  /* ---------- Banda de marca ---------- */
+  .brand{
+    background:#DA291C;
+    border-radius:16px;
+    padding:18px 20px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .brand img{
+    height:34px;width:auto;flex:none;
+    display:block;
+  }
+  .brand-mark{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:26px;
+    letter-spacing:-.02em;
+    color:#FFFFFF;
+    line-height:1;
+  }
+  .brand-txt{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .brand-txt b{
+    font-family:var(--display);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.09em;
+    text-transform:uppercase;
+    color:#FFFFFF;
+  }
+  .brand-txt span{
+    font-size:12.5px;
+    color:rgba(255,255,255,.88);
+    line-height:1.35;
   }
 
   /* ---------- Encabezado ---------- */
-  .eyebrow{
-    font-size:12px;
-    font-weight:700;
-    letter-spacing:.11em;
-    text-transform:uppercase;
-    color:var(--primary);
-    margin:0;
-  }
   h1{
     font-family:var(--display);
     font-weight:800;
-    font-size:clamp(28px,8.2vw,36px);
+    font-size:clamp(27px,7.8vw,34px);
     line-height:1.08;
     letter-spacing:-.02em;
     text-wrap:balance;
-    margin:8px 0 0;
+    margin:0;
   }
   h1 em{font-style:normal;color:var(--primary)}
   .lede{
-    margin:11px 0 0;
+    margin:10px 0 0;
     color:var(--ink-soft);
     max-width:36ch;
   }
@@ -104,11 +138,8 @@
   /* ---------- Beneficios ---------- */
   .perks{
     list-style:none;
-    margin:0;
-    padding:0;
-    display:flex;
-    flex-wrap:wrap;
-    gap:7px;
+    margin:0;padding:0;
+    display:flex;flex-wrap:wrap;gap:7px;
   }
   .perks li{
     font-size:13px;
@@ -118,7 +149,6 @@
     background:var(--primary-soft);
     color:var(--primary);
   }
-  .perks li.gold{background:var(--gold-soft);color:var(--gold)}
 
   /* ---------- Tarjeta ---------- */
   .card{
@@ -127,9 +157,7 @@
     border-radius:18px;
     padding:22px 18px;
     box-shadow:var(--shadow);
-    display:flex;
-    flex-direction:column;
-    gap:18px;
+    display:flex;flex-direction:column;gap:18px;
   }
   .field{display:flex;flex-direction:column;gap:7px}
   .field > label, .group-label{font-weight:700;font-size:14.5px}
@@ -140,9 +168,9 @@
     font-size:14.5px;
     font-weight:600;
     line-height:1.45;
-    color:var(--primary);
-    background:var(--primary-soft);
-    border-left:4px solid var(--primary);
+    color:var(--ink);
+    background:var(--note-bg);
+    border-left:4px solid var(--note-line);
     border-radius:0 10px 10px 0;
     padding:12px 14px;
   }
@@ -156,7 +184,7 @@
     padding:13px 14px;
     min-height:50px;
   }
-  input::placeholder{color:var(--ink-soft);opacity:.75}
+  input::placeholder{color:var(--ink-soft);opacity:.72}
   input:focus-visible,button:focus-visible,a:focus-visible{
     outline:3px solid var(--primary);
     outline-offset:2px;
@@ -179,14 +207,13 @@
     letter-spacing:.04em;
   }
 
-  /* ---------- Botón de ubicación ---------- */
+  /* ---------- Ubicación ---------- */
   .geo{
     width:100%;
-    font:inherit;
-    font-weight:700;
-    color:var(--gold);
-    background:var(--gold-soft);
-    border:1.5px dashed var(--gold);
+    font:inherit;font-weight:700;
+    color:var(--primary);
+    background:var(--primary-soft);
+    border:1.5px dashed var(--primary);
     border-radius:13px;
     padding:15px 14px;
     min-height:58px;
@@ -196,10 +223,10 @@
   }
   .geo:active{transform:scale(.985)}
   .geo[data-state="ok"]{
-    color:var(--primary);
-    background:var(--primary-soft);
+    color:var(--ok);
+    background:var(--ok-soft);
     border-style:solid;
-    border-color:var(--primary);
+    border-color:var(--ok);
   }
   .geo[data-state="fail"]{
     color:var(--ink-soft);
@@ -212,8 +239,7 @@
   .opt input{position:absolute;opacity:0;width:0;height:0}
   .opt label{
     display:flex;align-items:center;gap:11px;
-    padding:14px;
-    min-height:56px;
+    padding:14px;min-height:56px;
     border:1.5px solid var(--line-strong);
     border-radius:12px;
     background:var(--ground);
@@ -221,8 +247,7 @@
     cursor:pointer;
   }
   .opt label::before{
-    content:"";
-    flex:none;
+    content:"";flex:none;
     width:20px;height:20px;
     border-radius:6px;
     border:2px solid var(--line-strong);
@@ -242,47 +267,34 @@
   /* ---------- Consentimiento ---------- */
   .consent{
     display:flex;gap:11px;align-items:flex-start;
-    font-size:13.5px;
-    font-weight:400;
-    color:var(--ink-soft);
-    line-height:1.45;
+    font-size:13.5px;font-weight:400;
+    color:var(--ink-soft);line-height:1.45;
     cursor:pointer;
   }
   .consent input{
-    flex:none;
-    width:22px;height:22px;
-    margin:1px 0 0;
-    accent-color:var(--primary);
+    flex:none;width:22px;height:22px;
+    margin:1px 0 0;accent-color:var(--primary);
   }
 
   /* ---------- Enviar ---------- */
   .submit{
     width:100%;
-    font-family:var(--display);
-    font-weight:800;
-    font-size:17px;
+    font-family:var(--display);font-weight:800;font-size:17px;
     color:var(--primary-ink);
     background:var(--primary);
-    border:none;
-    border-radius:13px;
-    padding:17px;
-    min-height:58px;
-    cursor:pointer;
+    border:none;border-radius:13px;
+    padding:17px;min-height:58px;cursor:pointer;
     transition:transform .12s ease, background .12s ease;
   }
   .submit:hover{background:var(--primary-press)}
   .submit:active{transform:scale(.99)}
-  .no-dni{
-    text-align:center;
-    font-size:13px;
-    color:var(--ink-soft);
-    margin:0;
+  .safe{
+    text-align:center;font-size:13px;
+    color:var(--ink-soft);margin:0;
   }
   .err{
-    color:var(--danger);
-    font-size:13.5px;
-    font-weight:600;
-    margin:0;
+    color:var(--danger);font-size:13.5px;
+    font-weight:600;margin:0;
   }
 
   /* ---------- Pantalla final ---------- */
@@ -297,7 +309,7 @@
   }
   .tick{
     width:56px;height:56px;border-radius:50%;
-    background:var(--primary-soft);color:var(--primary);
+    background:var(--ok-soft);color:var(--ok);
     display:flex;align-items:center;justify-content:center;
     font-size:28px;font-weight:700;
   }
@@ -310,7 +322,7 @@
     display:inline-flex;align-items:center;gap:8px;
     font-size:13px;font-weight:700;
     padding:7px 13px;border-radius:999px;
-    background:var(--gold-soft);color:var(--gold);
+    background:var(--note-bg);color:var(--ink);
   }
   .wa{
     display:flex;align-items:center;justify-content:center;gap:9px;
@@ -324,10 +336,8 @@
 
   /* ---------- Pie ---------- */
   footer{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    line-height:1.55;
-    text-align:center;
+    font-size:12.5px;color:var(--ink-soft);
+    line-height:1.55;text-align:center;
     border-top:1px solid var(--line);
     padding-top:16px;
   }
@@ -341,16 +351,25 @@
 
 <div class="wrap">
 
+  <div class="brand">
+    <img id="logo" src="logo.png" alt="Claro" hidden>
+    <span class="brand-mark" id="marca">Claro</span>
+    <span class="brand-txt">
+      <b>Promotor autorizado</b>
+      <span>Fibra óptica en Lambayeque</span>
+    </span>
+  </div>
+
   <header>
-    <p class="eyebrow">Promotor de zona &middot; Lambayeque</p>
     <h1>No llames.<br>No hagas cola.<br><em>Vamos a tu casa.</em></h1>
-    <p class="lede">Déjanos 4 datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
+    <p class="lede">Déjanos tus datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
   </header>
 
   <ul class="perks">
     <li>Instalación gratis</li>
     <li>Repetidor Mesh gratis</li>
-    <li class="gold">Liga 1 Max incluida</li>
+    <li>Liga 1 Max incluida</li>
+    <li>105 canales</li>
   </ul>
 
   <form class="card" id="lead" novalidate>
@@ -427,7 +446,7 @@
     <p class="err" id="error" hidden></p>
 
     <button type="submit" class="submit">QUIERO MI FIBRA</button>
-    <p class="no-dni">🔒 Tu DNI solo se usa para gestionar tu contrato. No lo compartimos con terceros.</p>
+    <p class="safe">🔒 Tu DNI solo se usa para gestionar tu contrato. No lo compartimos con terceros.</p>
   </form>
 
   <section class="done" id="done" hidden>
@@ -451,6 +470,13 @@
 
   // Apps Script que escribe en la hoja "BASE DE DATOS-CLARO"
   var HOJA = 'https://script.google.com/macros/s/AKfycbxA_LJXq2K0gohl6gvPe9WR1KkmvyLcwOAHsS4mvsYgeGkjb5iEpLkHoWu71im_B4-z/exec';
+
+  // Si existe logo.png junto a la página, reemplaza la marca escrita
+  var logo = document.getElementById('logo');
+  logo.addEventListener('load', function(){
+    logo.hidden = false;
+    document.getElementById('marca').hidden = true;
+  });
 
   function guardarEnHoja(datos){
     try{
