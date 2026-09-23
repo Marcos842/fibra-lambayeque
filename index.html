@@ -140,13 +140,29 @@
   .lede{margin:8px 0 0;color:var(--ink-soft);font-size:15px;max-width:40ch}
   @media (min-width:900px){ .lede{font-size:17px;margin-top:14px} }
 
-  .perks{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-  .perks li{
-    font-size:12.5px;font-weight:600;
-    padding:5px 10px;border-radius:999px;
-    background:var(--rojo-soft);color:var(--rojo);
+  .perks{
+    list-style:none;margin:0;padding:0;
+    display:grid;grid-template-columns:1fr;gap:10px;
   }
-  @media (min-width:900px){ .perks li{font-size:14px;padding:7px 13px} }
+  @media (min-width:560px){ .perks{grid-template-columns:1fr 1fr;gap:12px 16px} }
+  .perks li{display:flex;align-items:center;gap:10px}
+  .perks i{
+    flex:none;width:32px;height:32px;border-radius:50%;
+    background:var(--rojo-soft);color:var(--rojo);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .perks b{
+    display:block;font-family:var(--body);
+    font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.25;
+  }
+  .perks small{
+    display:block;font-size:11.5px;font-weight:400;
+    color:var(--ink-soft);line-height:1.3;
+  }
+  @media (min-width:900px){
+    .perks b{font-size:14.5px}
+    .perks small{font-size:12px}
+  }
 
   .pasos{
     display:none;margin:0;padding:0;list-style:none;
@@ -332,10 +348,22 @@
     </header>
 
     <ul class="perks">
-      <li>Instalación gratis</li>
-      <li>Repetidor Mesh gratis</li>
-      <li>Liga 1 Max incluida</li>
-      <li>105 canales</li>
+      <li>
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M2.6 6.6h10.5v9H2.6z"/><path d="M13.1 9.6h3.8l2.6 3v3h-6.4z"/><circle cx="7" cy="18" r="1.9"/><circle cx="16.6" cy="18" r="1.9"/></svg></i>
+        <span><b>Instalación gratis</b><small>En todas las combinaciones</small></span>
+      </li>
+      <li>
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M2.8 8.6a14.5 14.5 0 0 1 18.4 0"/><path d="M6.2 12.6a9.5 9.5 0 0 1 11.6 0"/><path d="M9.7 16.5a4.6 4.6 0 0 1 4.6 0"/><circle cx="12" cy="20" r="1.1" fill="currentColor" stroke="none"/></svg></i>
+        <span><b>Repetidor Mesh gratis</b><small>En planes desde 400 Mbps (FTTH)</small></span>
+      </li>
+      <li>
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><circle cx="12" cy="12" r="9.1"/><path d="m12 7.3 4 2.9-1.5 4.7h-5L8 10.2z"/></svg></i>
+        <span><b>Liga 1 Max gratis</b><small>En combinaciones con TV</small></span>
+      </li>
+      <li>
+        <i aria-hidden="true"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><rect x="2.6" y="7.6" width="18.8" height="12.8" rx="2.1"/><path d="M7.6 3.6 12 7.6l4.4-4"/></svg></i>
+        <span><b>105 canales</b><small>Contratando Claro TV</small></span>
+      </li>
     </ul>
 
     <ol class="pasos">
