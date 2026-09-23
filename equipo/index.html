@@ -193,6 +193,28 @@
   .e4{border-left-color:#2B6FD4 !important}
   .e5{border-left-color:#6B4FD0 !important}
 
+  /* ---------- Banners ---------- */
+  .bgrid{
+    display:grid;grid-template-columns:1fr 1fr;gap:11px;
+    list-style:none;margin:0;padding:0;
+  }
+  @media (min-width:640px){ .bgrid{grid-template-columns:repeat(3,1fr);gap:14px} }
+  .bcard{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:12px;overflow:hidden;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;
+  }
+  .bcard img{width:100%;height:auto;display:block;background:var(--field)}
+  .bmeta{padding:11px;display:flex;flex-direction:column;gap:4px;flex:1}
+  .bmeta b{font-family:var(--display);font-size:13.5px;font-weight:700}
+  .bmeta small{font-size:11.5px;color:var(--ink-soft);line-height:1.35;flex:1}
+  .bmeta a{
+    margin-top:7px;text-align:center;text-decoration:none;
+    font-size:12.5px;font-weight:700;color:#fff;background:var(--btn);
+    border-radius:8px;padding:9px;
+  }
+  .bmeta a:hover{background:var(--btn-press)}
+
   .arriba{
     position:fixed;right:14px;
     bottom:calc(14px + env(safe-area-inset-bottom, 0px));
@@ -333,6 +355,7 @@
       <li><a href="#visita">La visita</a></li>
       <li><a href="#reglas">Qué decir</a></li>
       <li><a href="#frases">Frases seguras</a></li>
+      <li><a href="#banners">Banners</a></li>
       <li><a href="#estados">Estados</a></li>
     </ul>
   </nav>
@@ -591,6 +614,75 @@ Tienes cobertura confirmada ✅ ¿Lo agendamos esta semana?</pre>
       <pre>Promotor autorizado Claro. Servicio sujeto a verificación de cobertura y evaluación crediticia. Precios promocionales por tiempo limitado; al finalizar aplica la tarifa regular del plan. Beneficios según plan y zona.</pre>
     </article>
     <p class="nota">Va al pie del banner, en letra chica. No tiene que verse grande: tiene que estar.</p>
+  </section>
+
+  <!-- ============ BANNERS ============ -->
+  <section class="sec" id="banners">
+    <h2><span>🖼</span>Banners para publicar</h2>
+    <p class="nota">Toca <b>Descargar</b> y se guarda en tu celular, listo para publicar o mandar.</p>
+
+    <ul class="bgrid">
+      <li class="bcard">
+        <img src="../banners/mini/1-precio-s39.jpg" alt="Banner de internet desde S/39" loading="lazy" width="420" height="420">
+        <div class="bmeta">
+          <b>1 · Precio</b>
+          <small>El que más gente trae. Para grupos de Facebook.</small>
+          <a href="../banners/1-precio-s39.png" download>Descargar</a>
+        </div>
+      </li>
+      <li class="bcard">
+        <img src="../banners/mini/2-ya-instalamos.jpg" alt="Banner ya estamos instalando" loading="lazy" width="420" height="420">
+        <div class="bmeta">
+          <b>2 · Ya instalamos</b>
+          <small>Da confianza. Para estados y para el vecino de una cuadra.</small>
+          <a href="../banners/2-ya-instalamos.png" download>Descargar</a>
+        </div>
+      </li>
+      <li class="bcard">
+        <img src="../banners/mini/3-llega-a-tu-casa.jpg" alt="Banner llega la fibra a tu casa" loading="lazy" width="420" height="420">
+        <div class="bmeta">
+          <b>3 · ¿Llega a tu casa?</b>
+          <small>Va con el link del formulario. Trabaja solo.</small>
+          <a href="../banners/3-llega-a-tu-casa.png" download>Descargar</a>
+        </div>
+      </li>
+      <li class="bcard">
+        <img src="../banners/mini/4-internet-tv-liga1max.jpg" alt="Banner internet más TV con Liga 1 Max" loading="lazy" width="420" height="420">
+        <div class="bmeta">
+          <b>4 · Internet + TV</b>
+          <small>Para familias y para el hincha. Sube el ticket.</small>
+          <a href="../banners/4-internet-tv-liga1max.png" download>Descargar</a>
+        </div>
+      </li>
+      <li class="bcard">
+        <img src="../banners/mini/5-full-claro.jpg" alt="Banner Full Claro celular más internet" loading="lazy" width="420" height="420">
+        <div class="bmeta">
+          <b>5 · Full Claro</b>
+          <small>Para el que tiene celular de otro operador. Mejor margen.</small>
+          <a href="../banners/5-full-claro.png" download>Descargar</a>
+        </div>
+      </li>
+      <li class="bcard">
+        <img src="../banners/mini/6-fibra-vs-antena.jpg" alt="Banner fibra frente a antena" loading="lazy" width="420" height="420">
+        <div class="bmeta">
+          <b>6 · Fibra vs antena</b>
+          <small>Para el que tiene antena. El más fácil de cerrar.</small>
+          <a href="../banners/6-fibra-vs-antena.png" download>Descargar</a>
+        </div>
+      </li>
+      <li class="bcard">
+        <img src="../banners/mini/7-todos-los-planes.jpg" alt="Banner con todos los planes y precios" loading="lazy" width="420" height="525">
+        <div class="bmeta">
+          <b>7 · Todos los planes</b>
+          <small>Solo por WhatsApp, al que ya preguntó precios. No lo publiques en grupos.</small>
+          <a href="../banners/7-todos-los-planes.png" download>Descargar</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="stop">
+      <b>No publiques el mismo banner en varios grupos el mismo día.</b> Meta lo detecta como spam y te puede restringir la cuenta. Máximo 2 o 3 grupos al día, alternando banners, y el link siempre en el primer comentario.
+    </div>
   </section>
 
   <!-- ============ ESTADOS ============ -->
