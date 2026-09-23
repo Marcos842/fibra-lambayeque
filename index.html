@@ -85,8 +85,9 @@
   /* ---------- Cabecera ---------- */
   .head{background:var(--surface);border-bottom:1px solid var(--line)}
   .topbar{
-    padding:12px 16px;
-    padding-top:calc(12px + env(safe-area-inset-top, 0px));
+    background:#DA291C;
+    padding:13px 16px;
+    padding-top:calc(13px + env(safe-area-inset-top, 0px));
   }
   .hero{
     background:var(--surface);
@@ -117,29 +118,31 @@
     max-width:1020px;margin:0 auto;
     display:flex;align-items:center;gap:13px;
   }
-  .topbar .logo{height:30px;width:auto;flex:none;display:block}
-  @media (min-width:900px){ .topbar .logo{height:35px} }
-  :root:not([data-theme="dark"]) .logo-claro{display:none}
-  :root[data-theme="dark"] .logo-color{display:none}
+  .topbar .logo{height:38px;width:auto;flex:none;display:block}
+  @media (min-width:900px){ .topbar .logo{height:46px} }
   .mark-txt{
-    display:flex;flex-direction:column;gap:1px;
-    border-left:1px solid var(--line-strong);
-    padding-left:13px;min-width:0;
+    display:flex;flex-direction:column;gap:2px;
+    border-left:1px solid rgba(255,255,255,.42);
+    padding-left:14px;min-width:0;
   }
   .mark-txt b{
-    font-family:var(--display);font-size:11.5px;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);
+    font-family:var(--display);font-size:12px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:#fff;
   }
-  .mark-txt span{font-size:12px;color:var(--ink-soft)}
+  .mark-txt span{font-size:12.5px;color:rgba(255,255,255,.88)}
+  @media (min-width:900px){
+    .mark-txt b{font-size:13px}
+    .mark-txt span{font-size:13.5px}
+  }
   .tema{
     margin-left:auto;flex:none;
     width:38px;height:38px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    color:var(--ink-soft);background:var(--field);
-    border:1px solid var(--line-strong);
+    color:#fff;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.32);
     cursor:pointer;padding:0;
   }
-  .tema:hover{color:var(--ink);border-color:var(--ink-soft)}
+  .tema:hover{background:rgba(255,255,255,.3)}
   .tema svg{display:block}
   :root:not([data-theme="dark"]) .i-sol{display:none}
   :root[data-theme="dark"] .i-luna{display:none}
@@ -371,8 +374,7 @@
 <div class="head">
   <div class="topbar">
     <div class="topbar-in">
-      <img class="logo logo-color" src="imagen/LOGOCLARO.svg" alt="Claro" width="86" height="31">
-      <img class="logo logo-claro" src="imagen/logo-blanco.svg" alt="Claro" width="86" height="31">
+      <img class="logo" src="imagen/logo-blanco.svg" alt="Claro" width="128" height="46">
       <span class="mark-txt">
         <b>Promotor autorizado</b>
         <span>Fibra óptica en Lambayeque</span>
