@@ -25,49 +25,47 @@
 <style>
   :root{
     color-scheme: light;
-    --barra:#DA291C;
     --rojo:#DA291C;
-    --rojo-soft:#FDEBE9;
+    --rojo-soft:#FDECEA;
     --btn:#DA291C;
     --btn-press:#B21F14;
     --btn-ink:#FFFFFF;
-    --ground:#F2EFEE;
+    --ground:#F4F5F7;
     --surface:#FFFFFF;
-    --field:#FBFAFA;
-    --ink:#17120F;
-    --ink-soft:#6A5F5C;
-    --line:#E3DDDB;
-    --line-strong:#C7BEBB;
-    --note-bg:#F0ECEB;
-    --note-line:#B5AAA7;
-    --ok:#157C46;
-    --ok-soft:#E3F2E9;
+    --field:#FAFBFC;
+    --ink:#14161A;
+    --ink-soft:#5C6470;
+    --line:#E3E6EA;
+    --line-strong:#C3C9D2;
+    --note-bg:#EEF1F4;
+    --note-line:#AEB6C2;
+    --ok:#12794A;
+    --ok-soft:#E2F3EA;
     --danger:#B3261E;
-    --shadow:0 1px 2px rgba(23,18,15,.05), 0 6px 20px rgba(23,18,15,.07);
+    --shadow:0 1px 2px rgba(20,22,26,.05), 0 8px 24px rgba(20,22,26,.07);
     --display:'Archivo','Segoe UI',Tahoma,sans-serif;
     --body:'Karla','Segoe UI',Tahoma,sans-serif;
   }
   :root[data-theme="dark"]{
     color-scheme: dark;
-    --barra:#DA291C;
-    --rojo:#FF7A6C;
-    --rojo-soft:#331815;
-    --btn:#E63A2B;
-    --btn-press:#FF5A49;
+    --rojo:#FF6B5A;
+    --rojo-soft:#2B1512;
+    --btn:#DA291C;
+    --btn-press:#F0432F;
     --btn-ink:#FFFFFF;
-    --ground:#15100F;
-    --surface:#1E1817;
-    --field:#191312;
-    --ink:#F4F0EF;
-    --ink-soft:#A99E9B;
-    --line:#332B2A;
-    --line-strong:#4A403E;
-    --note-bg:#251F1E;
-    --note-line:#4A403E;
-    --ok:#5FD494;
-    --ok-soft:#13281E;
+    --ground:#0E1013;
+    --surface:#171A1F;
+    --field:#12151A;
+    --ink:#EEF1F4;
+    --ink-soft:#98A1AE;
+    --line:#252A31;
+    --line-strong:#3A414B;
+    --note-bg:#1E222A;
+    --note-line:#3A414B;
+    --ok:#4FD08C;
+    --ok-soft:#12261C;
     --danger:#FF9D95;
-    --shadow:0 1px 2px rgba(0,0,0,.5), 0 6px 20px rgba(0,0,0,.45);
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 26px rgba(0,0,0,.45);
   }
 
   *{box-sizing:border-box}
@@ -84,65 +82,64 @@
   img{max-width:100%}
   [hidden]{display:none !important}
 
-  /* ---------- Bloque rojo de cabecera ---------- */
-  .head{background:var(--barra)}
+  /* ---------- Cabecera ---------- */
+  .head{background:var(--surface);border-bottom:1px solid var(--line)}
   .topbar{
-    padding:11px 16px;
-    padding-top:calc(11px + env(safe-area-inset-top, 0px));
-    border-bottom:1px solid rgba(255,255,255,.18);
+    padding:12px 16px;
+    padding-top:calc(12px + env(safe-area-inset-top, 0px));
   }
-  /* La foto es el fondo; el rojo se funde encima, sin bordes visibles */
   .hero{
-    position:relative;
-    padding:30px 16px 38px;
-    background:#DA291C url('imagen/LOGOTESTCLARO.webp') 76% center / cover no-repeat;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+    padding:26px 16px 30px;
   }
-  .hero::before{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(to bottom,
-      rgba(218,41,28,1) 0%,
-      rgba(218,41,28,.90) 38%,
-      rgba(218,41,28,.42) 100%);
+  .hero-in{
+    max-width:1020px;margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:22px;align-items:center;
   }
-  .hero-in{position:relative;z-index:1;max-width:1020px;margin:0 auto}
-  .hero-in > div{max-width:33ch}
   @media (min-width:900px){
-    .hero{padding:62px 16px 70px;background-position:right center}
-    .hero::before{
-      background:linear-gradient(to right,
-        rgba(218,41,28,1) 0%,
-        rgba(218,41,28,.97) 34%,
-        rgba(218,41,28,.55) 62%,
-        rgba(218,41,28,.06) 88%,
-        rgba(218,41,28,0) 100%);
-    }
-    .hero-in > div{max-width:17ch}
+    .hero{padding:54px 16px 58px}
+    .hero-in{grid-template-columns:1fr .92fr;gap:44px}
+  }
+  .hero-img{
+    width:100%;height:auto;display:block;
+    border-radius:16px;
+    box-shadow:0 14px 38px rgba(20,22,26,.16);
+  }
+  .sello{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;
+    text-transform:uppercase;color:var(--rojo);
+    background:var(--rojo-soft);
+    padding:6px 12px;border-radius:999px;margin-bottom:14px;
   }
   .topbar-in{
     max-width:1020px;margin:0 auto;
     display:flex;align-items:center;gap:13px;
   }
-  .topbar .logo{height:31px;width:auto;flex:none;display:block}
-  @media (min-width:900px){ .topbar .logo{height:37px} }
+  .topbar .logo{height:30px;width:auto;flex:none;display:block}
+  @media (min-width:900px){ .topbar .logo{height:35px} }
+  :root:not([data-theme="dark"]) .logo-claro{display:none}
+  :root[data-theme="dark"] .logo-color{display:none}
   .mark-txt{
     display:flex;flex-direction:column;gap:1px;
-    border-left:1px solid rgba(255,255,255,.4);
+    border-left:1px solid var(--line-strong);
     padding-left:13px;min-width:0;
   }
   .mark-txt b{
-    font-family:var(--display);font-size:12px;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;color:#fff;
+    font-family:var(--display);font-size:11.5px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);
   }
-  .mark-txt span{font-size:12px;color:rgba(255,255,255,.9)}
+  .mark-txt span{font-size:12px;color:var(--ink-soft)}
   .tema{
     margin-left:auto;flex:none;
     width:38px;height:38px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    color:#fff;background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.3);
+    color:var(--ink-soft);background:var(--field);
+    border:1px solid var(--line-strong);
     cursor:pointer;padding:0;
   }
-  .tema:hover{background:rgba(255,255,255,.28)}
+  .tema:hover{color:var(--ink);border-color:var(--ink-soft)}
   .tema svg{display:block}
   :root:not([data-theme="dark"]) .i-sol{display:none}
   :root[data-theme="dark"] .i-luna{display:none}
@@ -169,14 +166,14 @@
 
   h1{
     font-family:var(--display);font-weight:800;
-    font-size:clamp(28px,7.6vw,52px);
-    line-height:1.03;letter-spacing:-.03em;
+    font-size:clamp(28px,7.4vw,50px);
+    line-height:1.04;letter-spacing:-.03em;
     text-wrap:balance;margin:0;
-    color:rgba(255,255,255,.82);
+    color:var(--ink);
   }
-  h1 em{font-style:normal;color:#fff}
+  h1 em{font-style:normal;color:var(--rojo)}
   .lede{
-    margin:12px 0 0;color:rgba(255,255,255,.9);
+    margin:13px 0 0;color:var(--ink-soft);
     font-size:15.5px;max-width:42ch;
   }
   @media (min-width:900px){ .lede{font-size:18px;margin-top:18px} }
@@ -374,7 +371,8 @@
 <div class="head">
   <div class="topbar">
     <div class="topbar-in">
-      <img class="logo" src="imagen/logo-blanco.svg" alt="Claro" width="86" height="31">
+      <img class="logo logo-color" src="imagen/LOGOCLARO.svg" alt="Claro" width="86" height="31">
+      <img class="logo logo-claro" src="imagen/logo-blanco.svg" alt="Claro" width="86" height="31">
       <span class="mark-txt">
         <b>Promotor autorizado</b>
         <span>Fibra óptica en Lambayeque</span>
@@ -389,9 +387,13 @@
   <div class="hero">
     <div class="hero-in">
       <div>
+        <span class="sello">Fibra óptica · Lambayeque</span>
         <h1>No llames. No hagas cola.<br><em>Vamos a tu casa.</em></h1>
         <p class="lede">Déjanos tus datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
       </div>
+      <img class="hero-img" src="imagen/hinchas.jpg"
+           alt="Claro, patrocinador oficial de la selección peruana"
+           width="1030" height="520">
     </div>
   </div>
 </div>
