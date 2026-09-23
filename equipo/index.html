@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#DA291C">
+<meta name="robots" content="noindex, nofollow">
+<title>Kit del Promotor | Fibra Lambayeque</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Karla:wght@400;500;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23DA291C'/%3E%3Ctext x='16' y='23' font-family='Segoe UI,Arial' font-size='21' font-weight='700' fill='white' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    color-scheme: light;
+    --rojo:#DA291C;
+    --rojo-soft:#FDECEA;
+    --btn:#DA291C;
+    --btn-press:#B21F14;
+    --ground:#F4F5F7;
+    --surface:#FFFFFF;
+    --field:#FAFBFC;
+    --ink:#14161A;
+    --ink-soft:#5C6470;
+    --line:#E3E6EA;
+    --line-strong:#C3C9D2;
+    --ok:#12794A;
+    --ok-soft:#E2F3EA;
+    --warn:#8A5A00;
+    --warn-soft:#FDF3DE;
+    --shadow:0 1px 2px rgba(20,22,26,.05), 0 8px 24px rgba(20,22,26,.07);
+    --display:'Archivo','Segoe UI',Tahoma,sans-serif;
+    --body:'Karla','Segoe UI',Tahoma,sans-serif;
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --rojo:#FF6B5A;
+    --rojo-soft:#2B1512;
+    --btn:#DA291C;
+    --btn-press:#F0432F;
+    --ground:#0E1013;
+    --surface:#171A1F;
+    --field:#12151A;
+    --ink:#EEF1F4;
+    --ink-soft:#98A1AE;
+    --line:#252A31;
+    --line-strong:#3A414B;
+    --ok:#4FD08C;
+    --ok-soft:#12261C;
+    --warn:#E6B860;
+    --warn-soft:#241D0F;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 26px rgba(0,0,0,.45);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--ground);color:var(--ink);
+    font-family:var(--body);font-size:16px;line-height:1.45;
+    -webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;
+  }
+  [hidden]{display:none !important}
+
+  .topbar{
+    background:#DA291C;padding:13px 16px;
+    padding-top:calc(13px + env(safe-area-inset-top, 0px));
+  }
+  .topbar-in{max-width:840px;margin:0 auto;display:flex;align-items:center;gap:13px}
+  .topbar .logo{height:34px;width:auto;flex:none;display:block}
+  .mark-txt{
+    display:flex;flex-direction:column;gap:2px;
+    border-left:1px solid rgba(255,255,255,.42);padding-left:14px;min-width:0;
+  }
+  .mark-txt b{
+    font-family:var(--display);font-size:12px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:#fff;
+  }
+  .mark-txt span{font-size:12.5px;color:rgba(255,255,255,.88)}
+  .tema{
+    margin-left:auto;flex:none;width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.32);cursor:pointer;padding:0;
+  }
+  :root:not([data-theme="dark"]) .i-sol{display:none}
+  :root[data-theme="dark"] .i-luna{display:none}
+
+  .wrap{
+    max-width:840px;margin:0 auto;
+    padding-inline:16px;
+    padding-block:22px calc(40px + env(safe-area-inset-bottom, 0px));
+    display:flex;flex-direction:column;gap:26px;
+  }
+
+  h1{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(25px,6.5vw,34px);line-height:1.06;
+    letter-spacing:-.025em;margin:0;
+  }
+  .intro{margin:9px 0 0;color:var(--ink-soft);font-size:15px;max-width:52ch}
+
+  h2{
+    font-family:var(--display);font-weight:800;font-size:19px;
+    letter-spacing:-.015em;margin:0 0 3px;
+    display:flex;align-items:center;gap:9px;
+  }
+  h2 span{
+    flex:none;width:26px;height:26px;border-radius:7px;
+    background:var(--rojo-soft);color:var(--rojo);
+    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+  }
+  .sec{display:flex;flex-direction:column;gap:11px}
+  .sec > p.nota{margin:0;color:var(--ink-soft);font-size:13.5px}
+
+  /* ---------- Tabla de precios ---------- */
+  .tabla-caja{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;box-shadow:var(--shadow);overflow-x:auto;
+  }
+  table{border-collapse:collapse;width:100%;min-width:430px;font-size:14px}
+  th,td{padding:11px 13px;text-align:left;border-bottom:1px solid var(--line)}
+  th{
+    font-family:var(--display);font-size:11.5px;font-weight:700;
+    letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);
+    background:var(--field);
+  }
+  tr:last-child td{border-bottom:none}
+  td.precio{font-weight:800;color:var(--rojo);white-space:nowrap;font-variant-numeric:tabular-nums}
+  td.luego{color:var(--ink-soft);font-size:13px;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+  /* ---------- Textos para copiar ---------- */
+  .texto{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;box-shadow:var(--shadow);overflow:hidden;
+  }
+  .texto header{
+    display:flex;align-items:center;gap:10px;
+    padding:12px 14px;border-bottom:1px solid var(--line);
+    background:var(--field);
+  }
+  .texto header b{font-family:var(--display);font-size:14.5px;font-weight:700;flex:1;min-width:0}
+  .copiar{
+    flex:none;font-family:var(--body);font-weight:700;font-size:13px;
+    color:#fff;background:var(--btn);border:none;border-radius:8px;
+    padding:8px 15px;min-height:38px;cursor:pointer;
+  }
+  .copiar:hover{background:var(--btn-press)}
+  .copiar[data-ok="1"]{background:var(--ok)}
+  .copiar:focus-visible,.tema:focus-visible,a:focus-visible{outline:3px solid var(--rojo);outline-offset:2px}
+  .texto pre{
+    margin:0;padding:14px;
+    font-family:inherit;font-size:14.5px;line-height:1.5;
+    white-space:pre-wrap;word-wrap:break-word;color:var(--ink);
+  }
+  .texto pre mark{
+    background:var(--rojo-soft);color:var(--rojo);
+    font-weight:700;padding:1px 4px;border-radius:4px;
+  }
+
+  /* ---------- Objeciones ---------- */
+  .obj{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;box-shadow:var(--shadow);
+    padding:14px;display:flex;flex-direction:column;gap:7px;
+  }
+  .obj q{
+    display:block;font-size:14.5px;font-weight:700;color:var(--ink);
+    font-style:italic;
+  }
+  .obj p{margin:0;font-size:14.5px;color:var(--ink-soft)}
+  .obj p b{color:var(--ink)}
+
+  /* ---------- Reglas ---------- */
+  .reglas{
+    background:var(--warn-soft);border:1px solid var(--line);
+    border-left:4px solid var(--warn);
+    border-radius:0 13px 13px 0;padding:15px;
+    margin:0;list-style:none;display:flex;flex-direction:column;gap:10px;
+  }
+  .reglas li{font-size:14px;line-height:1.4;color:var(--ink)}
+  .reglas li b{color:var(--warn)}
+
+  .stop{
+    background:var(--rojo-soft);border:1px solid var(--rojo);
+    border-radius:13px;padding:15px;
+    font-size:14.5px;line-height:1.45;color:var(--ink);
+  }
+  .stop b{color:var(--rojo)}
+
+  .link-caja{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:13px;box-shadow:var(--shadow);padding:14px;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .link-caja code{
+    font-family:ui-monospace,Consolas,monospace;font-size:13.5px;
+    background:var(--field);border:1px solid var(--line);
+    border-radius:8px;padding:11px 12px;
+    word-break:break-all;color:var(--ink);
+  }
+
+  footer{
+    font-size:12px;color:var(--ink-soft);line-height:1.5;text-align:center;
+    border-top:1px solid var(--line);padding-top:15px;
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-in">
+    <img class="logo" src="../imagen/logo-blanco.svg" alt="Claro" width="94" height="34">
+    <span class="mark-txt">
+      <b>Kit del promotor</b>
+      <span>Uso interno del equipo</span>
+    </span>
+    <button type="button" class="tema" id="tema" aria-label="Cambiar entre modo claro y oscuro">
+      <svg class="i-luna" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.7 14.4A8.7 8.7 0 0 1 9.6 3.3a8.7 8.7 0 1 0 11.1 11.1z"/></svg>
+      <svg class="i-sol" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.1M12 19.3v2.1M2.6 12h2.1M19.3 12h2.1M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M18.7 5.3l-1.5 1.5M6.8 17.2l-1.5 1.5"/></svg>
+    </button>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <h1>Kit del promotor</h1>
+    <p class="intro">Precios para orientarte y textos listos para copiar y pegar en WhatsApp. Toca <b>Copiar</b>, pégalo en el chat y cambia lo que está resaltado.</p>
+  </header>
+
+  <!-- ============ PRECIOS ============ -->
+  <section class="sec">
+    <h2><span>S/</span>Precios</h2>
+    <p class="nota">Campañas de setiembre 2026. Si cambian, avisa para actualizar esta página.</p>
+
+    <div class="tabla-caja">
+      <table>
+        <thead>
+          <tr><th>Plan</th><th>Velocidad</th><th>Precio</th><th>Luego</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Internet</td><td>400 Mbps<br><small>contratando 200</small></td><td class="precio">S/49</td><td class="luego">S/69<br><small>x6 meses</small></td></tr>
+          <tr><td>Internet</td><td>1000 Mbps<br><small>contratando 500</small></td><td class="precio">S/79</td><td class="luego">S/110<br><small>x6 meses</small></td></tr>
+          <tr><td>Internet + Teléfono</td><td>1000 Mbps<br><small>contratando 400</small></td><td class="precio">S/74</td><td class="luego">S/94<br><small>x6 meses</small></td></tr>
+          <tr><td>Internet + TV</td><td>1000 Mbps<br><small>contratando 400</small></td><td class="precio">S/109</td><td class="luego">S/170<br><small>x6 meses</small></td></tr>
+          <tr><td>3 Play</td><td>1000 Mbps<br><small>contratando 400</small></td><td class="precio">S/114</td><td class="luego">S/175<br><small>x6 meses</small></td></tr>
+          <tr><td>HFC Puro Internet</td><td>300 Mbps<br><small>contratando 150</small></td><td class="precio">S/39</td><td class="luego">S/44<br><small>x12 meses</small></td></tr>
+          <tr><td>HFC Puro Int + TV</td><td>300 Mbps<br><small>contratando 150</small></td><td class="precio">S/69</td><td class="luego">S/99<br><small>x12 meses</small></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tabla-caja">
+      <table>
+        <thead>
+          <tr><th>Full Claro</th><th>Por separado</th><th>Pagando junto</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Móvil ilimitado + 400 Mbps</td><td class="luego">S/168.90</td><td class="precio">S/99 · x1 año</td></tr>
+          <tr><td>Móvil ilimitado + 200 Mbps</td><td class="luego">S/138.90</td><td class="precio">S/79 · x1 año</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="stop">
+      <b>La promo de S/1 el primer mes NO se ofrece.</b> Es solo para clientes VIP. No la menciones en ningún mensaje ni publicación.
+    </div>
+  </section>
+
+  <!-- ============ TEXTOS ============ -->
+  <section class="sec">
+    <h2><span>💬</span>Textos para WhatsApp</h2>
+    <p class="nota">Copia, pega y cambia solo lo resaltado. No improvises el primer mensaje.</p>
+
+    <article class="texto">
+      <header><b>1. Primer contacto</b><button class="copiar" type="button">Copiar</button></header>
+      <pre>Hola <mark>[Nombre]</mark> 👋 Soy <mark>[Tu nombre]</mark>, promotor de zona de Claro en <mark>[Distrito]</mark>.
+
+Recibí tu solicitud de fibra. Ya estoy revisando la cobertura de tu dirección y te confirmo hoy mismo.
+
+Una consulta mientras tanto: ¿tienes internet en casa ahora o sería el primero?</pre>
+    </article>
+
+    <article class="texto">
+      <header><b>2. Sí hay cobertura</b><button class="copiar" type="button">Copiar</button></header>
+      <pre><mark>[Nombre]</mark>, buenas noticias ✅ Sí llega la fibra a tu dirección.
+
+Te paso las opciones y coordinamos la visita. La instalación es gratis.
+
+¿Te queda mejor que vaya en la mañana o en la tarde?</pre>
+    </article>
+
+    <article class="texto">
+      <header><b>3. No hay cobertura</b><button class="copiar" type="button">Copiar</button></header>
+      <pre>Hola <mark>[Nombre]</mark>. Ya revisé tu dirección en el sistema y por ahora no llega la fibra a tu zona, te soy sincero.
+
+Te dejo anotado y apenas se habilite te aviso, están ampliando red por ahí.
+
+Mientras tanto, dos cosas:
+1. ¿Te interesa ver tu plan de celular? Eso sí te lo puedo dar hoy.
+2. ¿Conoces algún vecino por <mark>[zona cercana]</mark>? Ahí sí tengo cobertura.</pre>
+    </article>
+
+    <article class="texto">
+      <header><b>4. Detectar Full Claro</b><button class="copiar" type="button">Copiar</button></header>
+      <pre>Una consulta <mark>[Nombre]</mark>: ¿cuánto pagas al mes por tu celular y con qué operador estás?
+
+Te lo pregunto porque si lo pasas a Claro el mismo día, tus 400 Mbps suben a 1000 Mbps de por vida y te armo un solo recibo.
+
+Te hago el número exacto y lo comparas con lo que pagas hoy.</pre>
+    </article>
+
+    <article class="texto">
+      <header><b>5. Cerrar la visita</b><button class="copiar" type="button">Copiar</button></header>
+      <pre>Perfecto <mark>[Nombre]</mark>. Quedamos el <mark>[día]</mark> en la <mark>[mañana/tarde]</mark>.
+
+Ten a la mano tu DNI, que con ese se firma el contrato. La instalación es gratis.
+
+Cualquier cosa me escribes por aquí 👍</pre>
+    </article>
+
+    <article class="texto">
+      <header><b>6. No responde</b><button class="copiar" type="button">Copiar</button></header>
+      <pre>Hola <mark>[Nombre]</mark>, ¿sigues interesado en la fibra?
+
+Te tengo la cobertura confirmada. Si quieres lo dejamos agendado para esta semana y te olvidas del tema.</pre>
+    </article>
+  </section>
+
+  <!-- ============ OBJECIONES ============ -->
+  <section class="sec">
+    <h2><span>!</span>Objeciones</h2>
+
+    <div class="obj">
+      <q>Si me paso a Claro pierdo mi número</q>
+      <p><b>Tu número se queda igual. No cambias nada, solo el chip.</b> Es el miedo número uno: adelántate y dilo antes de que lo pregunte.</p>
+    </div>
+
+    <div class="obj">
+      <q>¿Por qué S/99 si vi que era S/49?</q>
+      <p>Son cosas distintas. <b>S/49 es solo internet. S/99 es internet más celular ilimitado.</b> Nunca los compares entre sí.</p>
+    </div>
+
+    <div class="obj">
+      <q>Está caro</q>
+      <p>No defiendas el precio, <b>pregunta cuánto paga hoy en total</b> por internet y celular, y suma delante de él. Ej: S/49 + S/60 de Movistar = S/109 hoy, contra S/99 de Full Claro con celular ilimitado.</p>
+    </div>
+
+    <div class="obj">
+      <q>Lo voy a pensar</q>
+      <p>Nunca preguntes "¿te interesa?". Pregunta: <b>"¿lo quieres para esta semana o la próxima?"</b></p>
+    </div>
+
+    <div class="obj">
+      <q>Tengo Movistar / Entel y estoy bien</q>
+      <p>No ataques al otro operador. Ve a lo tuyo: <b>instalación gratis, repetidor Mesh gratis y el fútbol incluido.</b></p>
+    </div>
+
+    <div class="obj">
+      <q>Tengo antena (Wi-Net u otro)</q>
+      <p>El más fácil. <b>Compara velocidad real:</b> fibra contra antena no se parecen. Ofrécele hacer un test de velocidad delante de él.</p>
+    </div>
+  </section>
+
+  <!-- ============ REGLAS ============ -->
+  <section class="sec">
+    <h2><span>⚠</span>Lo que siempre debes decir</h2>
+    <p class="nota">Si no lo dices y el cliente se entera después, cancela y se te cae la comisión.</p>
+
+    <ul class="reglas">
+      <li><b>El precio promocional dura 6 o 12 meses.</b> Di siempre cuánto pasa a costar después.</li>
+      <li><b>Full Claro: ambos servicios el mismo día.</b> Si el móvil va un día y el fijo otro, no hay descuento.</li>
+      <li><b>El descuento Full Claro se pierde</b> si cambia de plan, de titular, de número, de ciclo de facturación, cancela o deja de ser Full Claro.</li>
+      <li><b>Liga 1 Max solo en combinaciones con TV.</b> El que contrata solo internet no la tiene.</li>
+      <li><b>Repetidor Mesh gratis desde 400 Mbps, en FTTH.</b> No en todos los planes.</li>
+      <li><b>Instalación gratis sujeta a evaluación crediticia.</b></li>
+      <li><b>El S/49 es zona focalizada.</b> No aplica en todo Lambayeque: confirma la dirección antes de prometerlo.</li>
+    </ul>
+  </section>
+
+  <!-- ============ LINK ============ -->
+  <section class="sec">
+    <h2><span>🔗</span>El link para tus clientes</h2>
+    <div class="link-caja">
+      <code id="urlForm">https://marcos842.github.io/fibra-lambayeque/</code>
+      <button class="copiar" type="button" data-target="urlForm" style="align-self:flex-start">Copiar link</button>
+      <p class="nota" style="margin:0">Mándalo al cliente que quiere info pero aún no te deja sus datos. Él lo llena y te llega ordenado.</p>
+    </div>
+  </section>
+
+  <footer>
+    Material interno del equipo de promotores. No compartir con clientes.<br>
+    Precios de setiembre 2026, sujetos a cambio.
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var raiz = document.documentElement;
+  try{ if(localStorage.getItem('tema') === 'dark') raiz.setAttribute('data-theme','dark'); }catch(e){}
+  document.getElementById('tema').addEventListener('click', function(){
+    var oscuro = raiz.getAttribute('data-theme') === 'dark';
+    if(oscuro){ raiz.removeAttribute('data-theme'); } else { raiz.setAttribute('data-theme','dark'); }
+    try{ localStorage.setItem('tema', oscuro ? 'light' : 'dark'); }catch(e){}
+  });
+
+  function copiar(txt, boton){
+    function listo(){
+      var antes = boton.textContent;
+      boton.textContent = '✓ Copiado';
+      boton.dataset.ok = '1';
+      setTimeout(function(){ boton.textContent = antes; boton.removeAttribute('data-ok'); }, 1800);
+    }
+    if(navigator.clipboard && window.isSecureContext){
+      navigator.clipboard.writeText(txt).then(listo, function(){ viejo(txt, listo); });
+    } else {
+      viejo(txt, listo);
+    }
+  }
+
+  function viejo(txt, listo){
+    var ta = document.createElement('textarea');
+    ta.value = txt;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    document.body.appendChild(ta);
+    ta.select();
+    try{ document.execCommand('copy'); listo(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.copiar'), function(b){
+    b.addEventListener('click', function(){
+      var id = b.dataset.target;
+      var txt = id
+        ? document.getElementById(id).textContent.trim()
+        : b.closest('.texto').querySelector('pre').innerText.trim();
+      copiar(txt, b);
+    });
+  });
+})();
+</script>
+</body>
+</html>
