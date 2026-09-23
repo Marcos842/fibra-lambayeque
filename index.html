@@ -268,6 +268,55 @@
     .pasos strong{color:var(--ink);font-weight:700}
   }
 
+  /* ---------- Planes ---------- */
+  .planes-band{background:var(--ground);border-bottom:1px solid var(--line)}
+  .planes-in{
+    max-width:1020px;margin:0 auto;
+    padding:26px 16px 30px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  @media (min-width:900px){ .planes-in{padding:44px 16px 48px;gap:18px} }
+  .planes-in h2{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(21px,5.2vw,30px);letter-spacing:-.02em;
+    margin:0;text-wrap:balance;
+  }
+  .planes-in > p{margin:0;color:var(--ink-soft);font-size:14.5px;max-width:52ch}
+
+  .planes{display:grid;grid-template-columns:1fr;gap:11px;list-style:none;margin:0;padding:0}
+  @media (min-width:600px){ .planes{grid-template-columns:1fr 1fr} }
+  @media (min-width:920px){ .planes{grid-template-columns:repeat(3,1fr);gap:14px} }
+
+  .plan{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:14px;padding:16px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:5px;position:relative;
+  }
+  .plan.destaca{border:2px solid var(--rojo)}
+  .plan .tipo{
+    font-size:11px;font-weight:700;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--rojo);
+  }
+  .plan .vel{font-family:var(--display);font-weight:800;font-size:19px;line-height:1.15}
+  .plan .precio{display:flex;align-items:baseline;gap:6px;margin-top:3px}
+  .plan .precio b{
+    font-family:var(--display);font-weight:800;font-size:35px;
+    color:var(--rojo);line-height:1;
+  }
+  .plan .precio span{font-size:13px;color:var(--ink-soft)}
+  .plan .antes{font-size:12.5px;color:var(--ink-soft);text-decoration:line-through}
+  .plan .luego{font-size:12.5px;color:var(--ink-soft)}
+  .plan ul{margin:7px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
+  .plan li{font-size:13px;line-height:1.35;display:flex;gap:7px;align-items:flex-start}
+  .plan li::before{content:"✓";color:var(--ok);font-weight:800;flex:none}
+  .plan .sello-plan{
+    position:absolute;top:-9px;right:13px;
+    font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--rojo);color:#fff;padding:4px 9px;border-radius:999px;
+  }
+  .planes-pie{font-size:12px;color:var(--ink-soft);line-height:1.5;margin:0}
+  .cta-planes{max-width:420px}
+
   /* ---------- Tarjeta ---------- */
   .card{
     background:var(--surface);
@@ -461,6 +510,96 @@
         <span><b>Instalación en 48 a 72 horas</b><small>Plazo estimado desde la aprobación del contrato</small></span>
       </li>
     </ul>
+  </div>
+</div>
+
+<div class="planes-band">
+  <div class="planes-in">
+    <h2>Nuestros planes</h2>
+    <p>Estos son los precios vigentes. Cuáles llegan a tu casa depende de la cobertura de tu dirección, y eso lo revisa tu promotor de zona.</p>
+
+    <ul class="planes">
+      <li class="plan">
+        <span class="tipo">Internet</span>
+        <span class="vel">300 Mbps</span>
+        <span class="precio"><b>S/39</b><span>al mes · por 12 meses</span></span>
+        <span class="luego">Luego S/44 al mes</span>
+        <ul>
+          <li>Plan de 150 Mbps</li>
+          <li>Instalación gratis</li>
+        </ul>
+      </li>
+
+      <li class="plan">
+        <span class="tipo">Internet</span>
+        <span class="vel">400 Mbps</span>
+        <span class="precio"><b>S/49</b><span>al mes · por 6 meses</span></span>
+        <span class="luego">Luego S/69 al mes</span>
+        <ul>
+          <li>Plan de 200 Mbps</li>
+          <li>Instalación gratis</li>
+        </ul>
+      </li>
+
+      <li class="plan">
+        <span class="tipo">Internet + TV</span>
+        <span class="vel">300 Mbps</span>
+        <span class="precio"><b>S/69</b><span>al mes · por 12 meses</span></span>
+        <span class="luego">Luego S/99 al mes</span>
+        <ul>
+          <li>104 canales</li>
+          <li>Liga 1 Max incluida</li>
+          <li>Instalación gratis</li>
+        </ul>
+      </li>
+
+      <li class="plan">
+        <span class="tipo">Internet + TV</span>
+        <span class="vel">1000 Mbps</span>
+        <span class="precio"><b>S/109</b><span>al mes · por 6 meses</span></span>
+        <span class="luego">Luego S/170 al mes</span>
+        <ul>
+          <li>104 canales</li>
+          <li>Liga 1 Max incluida</li>
+          <li>Instalación gratis</li>
+        </ul>
+      </li>
+
+      <li class="plan">
+        <span class="tipo">Full Claro · celular + internet</span>
+        <span class="vel">Móvil ilimitado + 200 Mbps</span>
+        <span class="antes">Antes S/138.90</span>
+        <span class="precio"><b>S/79</b><span>al mes · por 1 año</span></span>
+        <ul>
+          <li>Un solo recibo</li>
+          <li>Ambos servicios el mismo día</li>
+        </ul>
+      </li>
+
+      <li class="plan destaca">
+        <span class="sello-plan">El más completo</span>
+        <span class="tipo">Full Claro · celular + internet</span>
+        <span class="vel">Móvil ilimitado + 400 Mbps</span>
+        <span class="antes">Antes S/168.90</span>
+        <span class="precio"><b>S/99</b><span>al mes · por 1 año</span></span>
+        <ul>
+          <li>1000 Mbps de por vida</li>
+          <li>Un solo recibo</li>
+          <li>Ambos servicios el mismo día</li>
+        </ul>
+      </li>
+    </ul>
+
+    <a class="cta cta-planes" href="#lead">VALIDA TU SERVICIO AQUÍ →</a>
+
+    <p class="planes-pie">
+      No todos los planes llegan a todas las direcciones. Los precios son promocionales por el plazo indicado;
+      al terminar aplica la tarifa regular del plan. Liga 1 Max y los canales solo en combinaciones con TV, vía
+      Claro Video. El precio Full Claro exige contratar el móvil y el fijo el mismo día, y se pierde si cambias
+      de plan, de titularidad, de número, de ciclo de facturación, si cancelas o si dejas de ser Full Claro.
+      Los 1000 Mbps de por vida aplican a planes desde 400 Mbps siendo Full Claro. Todo sujeto a verificación
+      de cobertura y evaluación crediticia.
+    </p>
   </div>
 </div>
 
