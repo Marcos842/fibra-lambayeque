@@ -85,7 +85,6 @@
   /* ---------- Cabecera ---------- */
   .head{background:var(--surface);border-bottom:1px solid var(--line)}
   .topbar{
-    background:#DA291C;
     padding:13px 16px;
     padding-top:calc(13px + env(safe-area-inset-top, 0px));
   }
@@ -118,18 +117,29 @@
     max-width:1020px;margin:0 auto;
     display:flex;align-items:center;gap:13px;
   }
-  .topbar .logo{height:38px;width:auto;flex:none;display:block}
-  @media (min-width:900px){ .topbar .logo{height:46px} }
+  /* Bloque rojo a la medida del logo */
+  .logo-box{
+    flex:none;
+    background:#D6473B;
+    border-radius:10px;
+    padding:9px 13px;
+    display:flex;align-items:center;
+  }
+  .logo-box .logo{height:30px;width:auto;display:block}
+  @media (min-width:900px){
+    .logo-box{padding:11px 16px;border-radius:12px}
+    .logo-box .logo{height:36px}
+  }
   .mark-txt{
     display:flex;flex-direction:column;gap:2px;
-    border-left:1px solid rgba(255,255,255,.42);
+    border-left:1px solid var(--line-strong);
     padding-left:14px;min-width:0;
   }
   .mark-txt b{
     font-family:var(--display);font-size:12px;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;color:#fff;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--rojo);
   }
-  .mark-txt span{font-size:12.5px;color:rgba(255,255,255,.88)}
+  .mark-txt span{font-size:12.5px;color:var(--ink-soft)}
   @media (min-width:900px){
     .mark-txt b{font-size:13px}
     .mark-txt span{font-size:13.5px}
@@ -138,11 +148,11 @@
     margin-left:auto;flex:none;
     width:38px;height:38px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
-    color:#fff;background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.32);
+    color:var(--ink-soft);background:var(--field);
+    border:1px solid var(--line-strong);
     cursor:pointer;padding:0;
   }
-  .tema:hover{background:rgba(255,255,255,.3)}
+  .tema:hover{color:var(--ink);border-color:var(--ink-soft)}
   .tema svg{display:block}
   :root:not([data-theme="dark"]) .i-sol{display:none}
   :root[data-theme="dark"] .i-luna{display:none}
@@ -374,7 +384,9 @@
 <div class="head">
   <div class="topbar">
     <div class="topbar-in">
-      <img class="logo" src="imagen/logo-blanco.svg" alt="Claro" width="128" height="46">
+      <span class="logo-box">
+        <img class="logo" src="imagen/logo-blanco.svg" alt="Claro" width="100" height="36">
+      </span>
       <span class="mark-txt">
         <b>Promotor autorizado</b>
         <span>Fibra óptica en Lambayeque</span>
