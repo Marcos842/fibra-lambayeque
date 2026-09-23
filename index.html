@@ -91,9 +91,18 @@
     padding-top:calc(11px + env(safe-area-inset-top, 0px));
     border-bottom:1px solid rgba(255,255,255,.18);
   }
-  .hero{padding:26px 16px 30px}
+  .hero{padding:24px 16px 26px}
   .hero-in{max-width:1020px;margin:0 auto}
-  @media (min-width:900px){ .hero{padding:52px 16px 58px} }
+  @media (min-width:900px){ .hero{padding:44px 16px 46px} }
+
+  .banda{
+    display:block;width:100%;
+    height:148px;object-fit:cover;object-position:46% center;
+    border-top:1px solid rgba(255,255,255,.22);
+  }
+  @media (min-width:700px){
+    .banda{height:auto;aspect-ratio:2300 / 520;object-position:center}
+  }
   .topbar-in{
     max-width:1020px;margin:0 auto;
     display:flex;align-items:center;gap:13px;
@@ -368,6 +377,10 @@
       <p class="lede">Déjanos tus datos y un promotor de zona revisa si llega la fibra a tu dirección.</p>
     </div>
   </div>
+
+  <img class="banda" src="imagen/LOGOTESTCLARO.webp"
+       alt="Claro, patrocinador oficial de la selección peruana"
+       width="2300" height="520">
 </div>
 
 <div class="layout">
