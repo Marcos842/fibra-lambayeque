@@ -39,6 +39,8 @@
     --line-strong:#C3C9D2;
     --note-bg:#EEF1F4;
     --note-line:#AEB6C2;
+    --up-bg:#FFF4D6;
+    --up-ink:#8A5A00;
     --ok:#12794A;
     --ok-soft:#E2F3EA;
     --danger:#B3261E;
@@ -62,6 +64,8 @@
     --line-strong:#3A414B;
     --note-bg:#1E222A;
     --note-line:#3A414B;
+    --up-bg:#2A2310;
+    --up-ink:#E8BC63;
     --ok:#4FD08C;
     --ok-soft:#12261C;
     --danger:#FF9D95;
@@ -306,6 +310,14 @@
   .plan .precio span{font-size:13px;color:var(--ink-soft)}
   .plan .antes{font-size:12.5px;color:var(--ink-soft);text-decoration:line-through}
   .plan .luego{font-size:12.5px;color:var(--ink-soft)}
+  .plan .mejora{
+    align-self:flex-start;margin-top:8px;
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:12.5px;font-weight:700;line-height:1.25;
+    background:var(--up-bg);color:var(--up-ink);
+    padding:6px 10px;border-radius:8px;
+  }
+  .plan .mejora strong{font-weight:800}
   .plan ul{margin:7px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
   .plan li{font-size:13px;line-height:1.35;display:flex;gap:7px;align-items:flex-start}
   .plan li::before{content:"✓";color:var(--ok);font-weight:800;flex:none}
@@ -523,7 +535,8 @@
         <span class="tipo">Internet</span>
         <span class="vel">400 Mbps</span>
         <span class="precio"><b>S/69</b><span>al mes</span></span>
-        <span class="luego">Plan de 200 Mbps · 400 Mbps por 6 meses</span>
+        <span class="luego">Contratas 200 Mbps</span>
+        <span class="mejora">⚡ Navegas a <strong>400 Mbps</strong> por 6 meses</span>
         <ul>
           <li>Instalación gratis</li>
         </ul>
@@ -533,9 +546,9 @@
         <span class="tipo">Internet</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/79</b><span>al mes · por 6 meses</span></span>
-        <span class="luego">Luego S/110 al mes</span>
+        <span class="luego">Luego S/110 al mes · contratas 500 Mbps</span>
+        <span class="mejora">⚡ Navegas a <strong>1000 Mbps</strong> por 12 meses</span>
         <ul>
-          <li>Plan de 500 Mbps · 1000 Mbps por 12 meses</li>
           <li>Instalación gratis</li>
         </ul>
       </li>
@@ -544,7 +557,8 @@
         <span class="tipo">Internet + TV</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/109</b><span>al mes · por 6 meses</span></span>
-        <span class="luego">Luego S/170 al mes</span>
+        <span class="luego">Luego S/170 al mes · contratas 400 Mbps</span>
+        <span class="mejora">⚡ Navegas a <strong>1000 Mbps</strong> por 12 meses</span>
         <ul>
           <li>104 canales</li>
           <li>Liga 1 Max incluida</li>
@@ -556,7 +570,8 @@
         <span class="tipo">Internet + TV + Teléfono</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/114</b><span>al mes · por 6 meses</span></span>
-        <span class="luego">Luego S/175 al mes</span>
+        <span class="luego">Luego S/175 al mes · contratas 400 Mbps</span>
+        <span class="mejora">⚡ Navegas a <strong>1000 Mbps</strong> por 12 meses</span>
         <ul>
           <li>104 canales</li>
           <li>Teléfono fijo incluido</li>
@@ -581,8 +596,9 @@
         <span class="vel">Móvil ilimitado + 400 Mbps</span>
         <span class="antes">Antes S/168.90</span>
         <span class="precio"><b>S/99</b><span>al mes · por 1 año</span></span>
+        <span class="mejora">⚡ Navegas a <strong>1000 Mbps de por vida</strong></span>
         <ul>
-          <li>1000 Mbps de por vida</li>
+          <li>Plan móvil ilimitado</li>
           <li>Un solo recibo</li>
           <li>Ambos servicios el mismo día</li>
         </ul>
