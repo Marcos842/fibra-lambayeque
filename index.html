@@ -342,6 +342,57 @@
   }
   .planes-pie{font-size:12px;color:var(--ink-soft);line-height:1.5;margin:0}
   .cta-planes{max-width:420px}
+  .acciones{display:flex;flex-direction:column;gap:10px}
+  @media (min-width:560px){ .acciones{flex-direction:row;flex-wrap:wrap;align-items:center} }
+  .cta-ghost{
+    display:flex;align-items:center;justify-content:center;gap:9px;
+    width:100%;font-family:var(--display);font-weight:800;font-size:16px;
+    color:var(--rojo);background:var(--surface);
+    border:2px solid var(--rojo);border-radius:11px;
+    padding:14px 24px;min-height:54px;cursor:pointer;
+  }
+  .cta-ghost:hover{background:var(--rojo-soft)}
+  @media (min-width:560px){ .cta-ghost{width:auto} }
+
+  /* ---------- Ventana de planes en imagen ---------- */
+  .modal{
+    position:fixed;inset:0;z-index:60;
+    background:rgba(8,10,13,.82);
+    display:flex;align-items:center;justify-content:center;
+    padding:14px;
+    padding-top:calc(14px + env(safe-area-inset-top, 0px));
+    padding-bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+  }
+  .modal-caja{
+    background:var(--surface);
+    border-radius:16px;overflow:hidden;
+    width:100%;max-width:560px;max-height:100%;
+    display:flex;flex-direction:column;
+    box-shadow:0 24px 60px rgba(0,0,0,.45);
+  }
+  .modal-top{
+    display:flex;align-items:center;gap:10px;
+    padding:12px 14px;border-bottom:1px solid var(--line);
+    background:var(--surface);
+  }
+  .modal-top b{font-family:var(--display);font-size:15px;font-weight:800;flex:1;min-width:0}
+  .modal-x{
+    flex:none;width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;line-height:1;cursor:pointer;
+    color:var(--ink-soft);background:var(--field);
+    border:1px solid var(--line-strong);
+  }
+  .modal-x:hover{color:var(--ink);border-color:var(--ink-soft)}
+  .modal-scroll{overflow:auto;-webkit-overflow-scrolling:touch;background:var(--ground);flex:1}
+  .modal-scroll img{display:block;width:100%;height:auto}
+  .modal-pie{
+    padding:12px 14px;border-top:1px solid var(--line);
+    display:flex;flex-direction:column;gap:7px;background:var(--surface);
+  }
+  .modal-pie .cta{margin-top:0;width:100%;display:flex}
+  .modal-pie small{font-size:11.5px;color:var(--ink-soft);text-align:center;line-height:1.4}
+  body.sin-scroll{overflow:hidden}
 
   /* ---------- Tarjeta ---------- */
   .card{
@@ -663,7 +714,13 @@
       </li>
     </ul>
 
-    <a class="cta cta-planes" href="#lead">VALIDA TU SERVICIO AQUÍ →</a>
+    <div class="acciones">
+      <a class="cta cta-planes" href="#lead">VALIDA TU SERVICIO AQUÍ →</a>
+      <button type="button" class="cta-ghost" id="verPlanes">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="m3 15.5 4.5-4 4 3.5 3.5-4 6 5.5"/><circle cx="8.6" cy="9.4" r="1.4"/></svg>
+        Ver planes en imagen
+      </button>
+    </div>
 
     <p class="planes-pie">
       No todos los planes llegan a todas las direcciones. Los precios son promocionales por el plazo indicado;
@@ -673,6 +730,22 @@
       Los 1000 Mbps de por vida aplican a planes desde 400 Mbps siendo Full Claro. Todo sujeto a verificación
       de cobertura y evaluación crediticia.
     </p>
+  </div>
+</div>
+
+<div class="modal" id="modalPlanes" hidden>
+  <div class="modal-caja" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal-top">
+      <b id="modalTitulo">Nuestros planes</b>
+      <button type="button" class="modal-x" id="cerrarPlanes" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="modal-scroll">
+      <img src="planes-afiche.jpg" alt="Planes de internet de fibra, internet con TV y Full Claro, con sus precios" width="1080" height="1424" loading="lazy">
+    </div>
+    <div class="modal-pie">
+      <a class="cta" href="#lead" data-cierra>VALIDA TU SERVICIO AQUÍ →</a>
+      <small>Te llevamos al formulario. Toma menos de un minuto.</small>
+    </div>
   </div>
 </div>
 
@@ -841,6 +914,34 @@
     if(yaVino) return;
     try{ sessionStorage.setItem('visitado','1'); }catch(e){}
     guardarEnHoja({ tipo: 'visita' });
+  })();
+
+  /* ---------- Ventana de planes en imagen ---------- */
+  (function(){
+    var modal = document.getElementById('modalPlanes');
+    var abrir = document.getElementById('verPlanes');
+    if(!modal || !abrir) return;
+
+    function abre(){
+      modal.hidden = false;
+      document.body.classList.add('sin-scroll');
+      document.getElementById('cerrarPlanes').focus();
+    }
+    function cierra(){
+      modal.hidden = true;
+      document.body.classList.remove('sin-scroll');
+      abrir.focus();
+    }
+
+    abrir.addEventListener('click', abre);
+    document.getElementById('cerrarPlanes').addEventListener('click', cierra);
+    modal.addEventListener('click', function(e){ if(e.target === modal) cierra(); });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && !modal.hidden) cierra();
+    });
+    Array.prototype.forEach.call(modal.querySelectorAll('[data-cierra]'), function(b){
+      b.addEventListener('click', cierra);
+    });
   })();
 
   var form    = document.getElementById('lead');
