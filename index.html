@@ -312,12 +312,19 @@
   .plan .luego{font-size:12.5px;color:var(--ink-soft)}
   .plan .mejora{
     align-self:flex-start;margin-top:8px;
-    display:inline-flex;align-items:center;gap:6px;
-    font-size:12.5px;font-weight:700;line-height:1.25;
+    display:inline-flex;align-items:baseline;flex-wrap:wrap;gap:5px;
+    font-size:12.5px;font-weight:700;line-height:1.35;
     background:var(--up-bg);color:var(--up-ink);
     padding:6px 10px;border-radius:8px;
   }
-  .plan .mejora strong{font-weight:800}
+  .plan .mejora s{opacity:.62;font-weight:600}
+  .plan .mejora strong{font-weight:800;font-size:14px}
+  .plan-ico{
+    width:42px;height:42px;border-radius:11px;flex:none;
+    background:var(--rojo-soft);color:var(--rojo);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:4px;
+  }
   .plan ul{margin:7px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
   .plan li{font-size:13px;line-height:1.35;display:flex;gap:7px;align-items:flex-start}
   .plan li::before{content:"✓";color:var(--ok);font-weight:800;flex:none}
@@ -532,33 +539,36 @@
 
     <ul class="planes">
       <li class="plan">
+        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="13.6" width="18.8" height="6.8" rx="2"/><path d="M6.2 17h.01M9.4 17h.01M12 13.6V9.4"/><path d="M8.9 6.4a4.4 4.4 0 0 1 6.2 0"/><path d="M6.3 3.8a8.1 8.1 0 0 1 11.4 0"/></svg></span>
         <span class="tipo">Internet</span>
         <span class="vel">400 Mbps</span>
         <span class="precio"><b>S/69</b><span>al mes</span></span>
-        <span class="luego">Contratas 200 Mbps</span>
-        <span class="mejora">⚡ Navegas a <strong>400 Mbps</strong> por 6 meses</span>
+        <span class="luego">Tu plan es de 200 Mbps</span>
+        <span class="mejora">⚡ <s>200 Mbps</s> → <strong>400 Mbps</strong> por 6 meses</span>
         <ul>
           <li>Instalación gratis</li>
         </ul>
       </li>
 
       <li class="plan">
+        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="13.6" width="18.8" height="6.8" rx="2"/><path d="M6.2 17h.01M9.4 17h.01M12 13.6V9.4"/><path d="M8.9 6.4a4.4 4.4 0 0 1 6.2 0"/><path d="M6.3 3.8a8.1 8.1 0 0 1 11.4 0"/></svg></span>
         <span class="tipo">Internet</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/79</b><span>al mes · por 6 meses</span></span>
-        <span class="luego">Luego S/110 al mes · contratas 500 Mbps</span>
-        <span class="mejora">⚡ Navegas a <strong>1000 Mbps</strong> por 12 meses</span>
+        <span class="luego">Luego S/110 al mes · tu plan es de 500 Mbps</span>
+        <span class="mejora">⚡ <s>500 Mbps</s> → <strong>1000 Mbps</strong> por 12 meses</span>
         <ul>
           <li>Instalación gratis</li>
         </ul>
       </li>
 
       <li class="plan">
+        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.6" width="18.8" height="12.8" rx="2"/><path d="M8.4 20.6h7.2M12 17.4v3.2"/></svg></span>
         <span class="tipo">Internet + TV</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/109</b><span>al mes · por 6 meses</span></span>
-        <span class="luego">Luego S/170 al mes · contratas 400 Mbps</span>
-        <span class="mejora">⚡ Navegas a <strong>1000 Mbps</strong> por 12 meses</span>
+        <span class="luego">Luego S/170 al mes · tu plan es de 400 Mbps</span>
+        <span class="mejora">⚡ <s>400 Mbps</s> → <strong>1000 Mbps</strong> por 12 meses</span>
         <ul>
           <li>104 canales</li>
           <li>Liga 1 Max incluida</li>
@@ -567,11 +577,12 @@
       </li>
 
       <li class="plan">
+        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.6h3l1.5 3.9-2 1.5a12 12 0 0 0 6.1 6.1l1.5-2 3.9 1.5v3a2 2 0 0 1-2.2 2C10.8 19 5 13.2 4.4 5.8a2 2 0 0 1 2-2.2z"/></svg></span>
         <span class="tipo">Internet + TV + Teléfono</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/114</b><span>al mes · por 6 meses</span></span>
-        <span class="luego">Luego S/175 al mes · contratas 400 Mbps</span>
-        <span class="mejora">⚡ Navegas a <strong>1000 Mbps</strong> por 12 meses</span>
+        <span class="luego">Luego S/175 al mes · tu plan es de 400 Mbps</span>
+        <span class="mejora">⚡ <s>400 Mbps</s> → <strong>1000 Mbps</strong> por 12 meses</span>
         <ul>
           <li>104 canales</li>
           <li>Teléfono fijo incluido</li>
@@ -580,11 +591,13 @@
       </li>
 
       <li class="plan">
+        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.6" y="2.6" width="10.8" height="18.8" rx="2.6"/><path d="M10.4 5.6h3.2M12 18.4h.01"/></svg></span>
         <span class="tipo">Full Claro · celular + internet</span>
         <span class="vel">Móvil ilimitado + 200 Mbps</span>
         <span class="antes">Antes S/138.90</span>
         <span class="precio"><b>S/79</b><span>al mes · por 1 año</span></span>
         <ul>
+          <li>Plan móvil ilimitado</li>
           <li>Un solo recibo</li>
           <li>Ambos servicios el mismo día</li>
         </ul>
@@ -592,11 +605,12 @@
 
       <li class="plan destaca">
         <span class="sello-plan">El más completo</span>
+        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.6" y="2.6" width="10.8" height="18.8" rx="2.6"/><path d="M10.4 5.6h3.2M12 18.4h.01"/></svg></span>
         <span class="tipo">Full Claro · celular + internet</span>
         <span class="vel">Móvil ilimitado + 400 Mbps</span>
         <span class="antes">Antes S/168.90</span>
         <span class="precio"><b>S/99</b><span>al mes · por 1 año</span></span>
-        <span class="mejora">⚡ Navegas a <strong>1000 Mbps de por vida</strong></span>
+        <span class="mejora">⚡ <s>400 Mbps</s> → <strong>1000 Mbps de por vida</strong></span>
         <ul>
           <li>Plan móvil ilimitado</li>
           <li>Un solo recibo</li>
