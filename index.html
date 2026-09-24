@@ -319,11 +319,16 @@
   }
   .plan .mejora s{opacity:.62;font-weight:600}
   .plan .mejora strong{font-weight:800;font-size:14px}
-  .plan-ico{
-    width:42px;height:42px;border-radius:11px;flex:none;
+  .plan-icos{display:flex;gap:6px;margin-bottom:5px;flex-wrap:wrap}
+  .plan-icos i{
+    width:36px;height:36px;border-radius:9px;flex:none;
     background:var(--rojo-soft);color:var(--rojo);
     display:flex;align-items:center;justify-content:center;
-    margin-bottom:4px;
+  }
+  .plan-icos .ico{
+    width:20px;height:20px;display:block;
+    fill:none;stroke:currentColor;stroke-width:1.9;
+    stroke-linecap:round;stroke-linejoin:round;
   }
   .plan ul{margin:7px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px}
   .plan li{font-size:13px;line-height:1.35;display:flex;gap:7px;align-items:flex-start}
@@ -532,6 +537,26 @@
   </div>
 </div>
 
+<svg style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="i-router" viewBox="0 0 24 24">
+    <rect x="2.6" y="13.6" width="18.8" height="6.8" rx="2"/>
+    <path d="M6.2 17h.01M9.4 17h.01M12 13.6V9.4"/>
+    <path d="M8.9 6.4a4.4 4.4 0 0 1 6.2 0"/>
+    <path d="M6.3 3.8a8.1 8.1 0 0 1 11.4 0"/>
+  </symbol>
+  <symbol id="i-tv" viewBox="0 0 24 24">
+    <rect x="2.6" y="4.6" width="18.8" height="12.8" rx="2"/>
+    <path d="M8.4 20.6h7.2M12 17.4v3.2"/>
+  </symbol>
+  <symbol id="i-tel" viewBox="0 0 24 24">
+    <path d="M6.4 3.6h3l1.5 3.9-2 1.5a12 12 0 0 0 6.1 6.1l1.5-2 3.9 1.5v3a2 2 0 0 1-2.2 2C10.8 19 5 13.2 4.4 5.8a2 2 0 0 1 2-2.2z"/>
+  </symbol>
+  <symbol id="i-movil" viewBox="0 0 24 24">
+    <rect x="6.6" y="2.6" width="10.8" height="18.8" rx="2.6"/>
+    <path d="M10.4 5.6h3.2M12 18.4h.01"/>
+  </symbol>
+</svg>
+
 <div class="planes-band">
   <div class="planes-in">
     <h2>Nuestros planes</h2>
@@ -539,7 +564,9 @@
 
     <ul class="planes">
       <li class="plan">
-        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="13.6" width="18.8" height="6.8" rx="2"/><path d="M6.2 17h.01M9.4 17h.01M12 13.6V9.4"/><path d="M8.9 6.4a4.4 4.4 0 0 1 6.2 0"/><path d="M6.3 3.8a8.1 8.1 0 0 1 11.4 0"/></svg></span>
+        <span class="plan-icos" aria-hidden="true">
+          <i><svg class="ico"><use href="#i-router"/></svg></i>
+        </span>
         <span class="tipo">Internet</span>
         <span class="vel">400 Mbps</span>
         <span class="precio"><b>S/69</b><span>al mes</span></span>
@@ -551,7 +578,9 @@
       </li>
 
       <li class="plan">
-        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="13.6" width="18.8" height="6.8" rx="2"/><path d="M6.2 17h.01M9.4 17h.01M12 13.6V9.4"/><path d="M8.9 6.4a4.4 4.4 0 0 1 6.2 0"/><path d="M6.3 3.8a8.1 8.1 0 0 1 11.4 0"/></svg></span>
+        <span class="plan-icos" aria-hidden="true">
+          <i><svg class="ico"><use href="#i-router"/></svg></i>
+        </span>
         <span class="tipo">Internet</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/79</b><span>al mes · por 6 meses</span></span>
@@ -563,7 +592,10 @@
       </li>
 
       <li class="plan">
-        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.6" y="4.6" width="18.8" height="12.8" rx="2"/><path d="M8.4 20.6h7.2M12 17.4v3.2"/></svg></span>
+        <span class="plan-icos" aria-hidden="true">
+          <i><svg class="ico"><use href="#i-router"/></svg></i>
+          <i><svg class="ico"><use href="#i-tv"/></svg></i>
+        </span>
         <span class="tipo">Internet + TV</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/109</b><span>al mes · por 6 meses</span></span>
@@ -577,7 +609,11 @@
       </li>
 
       <li class="plan">
-        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.6h3l1.5 3.9-2 1.5a12 12 0 0 0 6.1 6.1l1.5-2 3.9 1.5v3a2 2 0 0 1-2.2 2C10.8 19 5 13.2 4.4 5.8a2 2 0 0 1 2-2.2z"/></svg></span>
+        <span class="plan-icos" aria-hidden="true">
+          <i><svg class="ico"><use href="#i-router"/></svg></i>
+          <i><svg class="ico"><use href="#i-tv"/></svg></i>
+          <i><svg class="ico"><use href="#i-tel"/></svg></i>
+        </span>
         <span class="tipo">Internet + TV + Teléfono</span>
         <span class="vel">1000 Mbps</span>
         <span class="precio"><b>S/114</b><span>al mes · por 6 meses</span></span>
@@ -591,7 +627,10 @@
       </li>
 
       <li class="plan">
-        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.6" y="2.6" width="10.8" height="18.8" rx="2.6"/><path d="M10.4 5.6h3.2M12 18.4h.01"/></svg></span>
+        <span class="plan-icos" aria-hidden="true">
+          <i><svg class="ico"><use href="#i-movil"/></svg></i>
+          <i><svg class="ico"><use href="#i-router"/></svg></i>
+        </span>
         <span class="tipo">Full Claro · celular + internet</span>
         <span class="vel">Móvil ilimitado + 200 Mbps</span>
         <span class="antes">Antes S/138.90</span>
@@ -605,7 +644,10 @@
 
       <li class="plan destaca">
         <span class="sello-plan">El más completo</span>
-        <span class="plan-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6.6" y="2.6" width="10.8" height="18.8" rx="2.6"/><path d="M10.4 5.6h3.2M12 18.4h.01"/></svg></span>
+        <span class="plan-icos" aria-hidden="true">
+          <i><svg class="ico"><use href="#i-movil"/></svg></i>
+          <i><svg class="ico"><use href="#i-router"/></svg></i>
+        </span>
         <span class="tipo">Full Claro · celular + internet</span>
         <span class="vel">Móvil ilimitado + 400 Mbps</span>
         <span class="antes">Antes S/168.90</span>
